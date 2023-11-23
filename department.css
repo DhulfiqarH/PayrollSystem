@@ -6,7 +6,8 @@ body {
 }
 
 .container {
-  margin-top: 20px; 
+  width: 100%;
+  margin-top: 20px;
   text-align: center;
 }
 

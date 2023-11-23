@@ -11,14 +11,14 @@
 <body>
   <?php include 'navbar.php'; ?>
     <div class="payroll-container">
-        <h2>Payroll System</h2>
+        <h2>Payroll</h2>
         <table class="payroll-table">
             <thead>
                 <tr>
-                    <th>Employee Number</th>
-                    <th>Date From</th>
-                    <th>Date To</th>
-                    <th>Status</th>
+                    <th>EmployeeID</th>
+                    <th>PeriodStartDate</th>
+                    <th>PeriodEndDate</th>
+                    <th>DateProcessed</th>
                     <th>Action</th>
                 </tr>
             </thead>

@@ -10,7 +10,7 @@
 <body>
   <?php include 'navbar.php'; ?>
   <div class="container">
-    <h2>Employee Records</h2>
+    <h2>Employees</h2>
 
     <!-- Search bar (JAVASCRIPT)-->
     <input type="text" class="form-control mb-3" placeholder="Search by employee number or name">
@@ -22,11 +22,13 @@
     <table>
       <thead>
         <tr>
-          <th>Employee No</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Department</th>
-          <th>Position</th>
+          <th>EmployeeID</th>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>PositionID</th>
+          <th>DepartmentID</th>
+          <th>HireDate</th>
+          <th>Role</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -38,6 +40,8 @@
           <td>dough</td>
           <td>HR</td>
           <td>Consultant</td>
+          <td>January 1st. 2023</td>
+          <td>0</td>
           <td>
             <button class="btn btn-primary">Edit</button>
             <button class="btn btn-danger">Delete</button>

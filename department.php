@@ -10,7 +10,7 @@
 <body>
   <?php include 'navbar.php'; ?>
   <div class="container">
-    <h2>Department List</h2>
+    <h2>Departments</h2>
     <table>
       <thead>
         <tr>
