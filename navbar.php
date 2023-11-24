@@ -16,7 +16,7 @@
     <a href="department.php" class="cool-button animated-button">Department</a>
     <a href="deductionb.php" class="cool-button animated-button">Deduction List</a>
     <a href="signup.php" class="cool-button animated-button">Signup</a>
-    <a href="signin.html" class="cool-button animated-button">Signin</a>
+    <a href="signin.php" class="cool-button animated-button">Signin</a>
 </div>
 </body>
 </html>

@@ -8,10 +8,10 @@
     <title>Sign Up</title>
 </head>
 <body>
-    <?php include 'navbar.php'; ?>
     <?php
-    // Include the database connection file
-    include 'sqlconnection.php';
+    session_start();
+    include ("navbar.php");
+    include ("sqlconnection.php");
 
     // Check if the form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
