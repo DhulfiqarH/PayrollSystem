@@ -26,9 +26,10 @@
 
         if (mysqli_num_rows($check_username_result) == 0) {
             // Username is available, proceed with registration
-            $insert_query = "INSERT INTO UserLogin (UserName, Password, Email, Phone) VALUES ('$UserName', '$Password', '$Email', '$Phone')";
+            $query = "insert into UserLogin (EmployeeID, UserName, Password, Email, Phone, LastLogin) values (9,'$UserName','$Password', '$Email', '$Phone', NOW())";
+                  mysqli_query($con, $query);
 
-            $result = mysqli_query($conn, $insert_query);
+            $result = mysqli_query($con, $insert_query);
 
             if ($result) {
                 echo "<div class='center'><h2>Registration successful. Please log in.</h2></div>";
