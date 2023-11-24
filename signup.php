@@ -8,60 +8,55 @@
     <title>Sign Up</title>
 </head>
 <body>
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="signup.css">
-      <link rel="stylesheet" type="text/css" href="navbar.css">
-      <title>Sign Up</title>
-  </head>
-  <body>
-      <?php include 'navbar.php'; ?>
-      <?php
-      session_start();
-      	include("sqlconnection.php");
+    <?php include 'navbar.php'; ?>
+    <?php
+    // Include the database connection file
+    include 'sqlconnection.php';
 
-      	if($_SERVER['REQUEST_METHOD'] == "POST")
-      	{
-      		//something was posted
-      		$UserName= $_POST['UserName'];
-      		$Password = $_POST['Password'];
-          $Email= $_POST['Email'];
-      		$Phone = $_POST['Password'];
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $UserName = $_POST["UserName"];
+        $Password = $_POST["Password"];
+        $Email = $_POST["Email"];
+        $Phone = $_POST["Phone"];
 
-      		if(!empty($UserName) && !empty($Password) && !empty($Email) && !empty($Phone) && !is_numeric($UserName))
-      		{
-      			//save to database
-      			$sql= "insert into UserLogin (UserName, Password, Email, Phone) values ('$UserName','$password', '$Email', '$Phone')";
-      			mysqli_query($con, $sql);
+        // Check if the username is already present in the database
+        $check_username_query = "SELECT * FROM UserLogin WHERE UserName = '$UserName'";
+        $check_username_result = mysqli_query($conn, $check_username_query);
 
-      			header("Location: login.php");
-      			die;
-      		}else
-      		{
-      			echo "Please enter some valid information!";
-      		}
-      	}
-      ?>
-      <div class="signup-container">
-          <h2>Sign Up</h2>
-          <form action="signup.php" method="post">
-              <label for="Email">Email:</label>
-              <input type="Email" name="Email" required>
+        if (mysqli_num_rows($check_username_result) == 0) {
+            // Username is available, proceed with registration
+            $insert_query = "INSERT INTO UserLogin (UserName, Password, Email, Phone) VALUES ('$UserName', '$Password', '$Email', '$Phone')";
 
-              <label for="Phone">Phone:</label>
-              <input type="text" name="Phone" required>
+            $result = mysqli_query($conn, $insert_query);
 
-              <label for="UserName">Username:</label>
-              <input type="text" name="UserName" required>
+            if ($result) {
+                echo "<div class='center'><h2>Registration successful. Please log in.</h2></div>";
+            } else {
+                echo "<div class='center'><h2>Registration failed. Please try again.</h2></div>";
+            }
+        } else {
+            echo "<div class='center'><h2>Username not available. Please choose a different username.</h2></div>";
+        }
+    }
+    ?>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form action="signup.php" method="post">
+            <label for="email">Email:</label>
+            <input type="email" name="Email" required>
 
-              <label for="Password">Password:</label>
-              <input type="Password" name="Password" required>
+            <label for="phone">Phone:</label>
+            <input type="text" name="Phone" required>
 
-              <button type="submit" name="reg_user">Sign Up</button>
-          </form>
-      </div>
-  </body>
-  </html>
+            <label for="username">Username:</label>
+            <input type="text" name="UserName" required>
+
+            <label for="password">Password:</label>
+            <input type="password" name="Password" required>
+
+            <button type="submit" name="reg_user">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>
