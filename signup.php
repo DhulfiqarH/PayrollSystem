@@ -34,8 +34,8 @@
       		if(!empty($UserName) && !empty($Password) && !empty($Email) && !empty($Phone) && !is_numeric($UserName))
       		{
       			//save to database
-      			$query = "insert into users (UserName, Password, Email, Phone) values ('$UserName','$password', '$Email', '$Phone')";
-      			mysqli_query($con, $query);
+      			$sql= "insert into UserLogin (UserName, Password, Email, Phone) values ('$UserName','$password', '$Email', '$Phone')";
+      			mysqli_query($con, $sql);
 
       			header("Location: login.php");
       			die;

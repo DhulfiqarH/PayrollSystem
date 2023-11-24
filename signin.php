@@ -23,8 +23,8 @@
   		if(!empty($UserName) && !empty($Password) && !empty($Email) && !empty($Phone) && !is_numeric($UserName))
   		{
   			//read from database
-  			$query = "select * from UserLogin where UserName = '$UserName' limit 1";
-  			$result = mysqli_query($con, $query);
+  			$sql = "select * from UserLogin where UserName = '$UserName' limit 1";
+  			$result = mysqli_query($con, $sql);
 
   			if($result)
   			{
