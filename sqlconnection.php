@@ -1,11 +1,12 @@
 <?php
-$dbhost = "127.0.01";
+$dbhost = "127.0.0.1";
 $dbuser = "root";
-$dbpass = "";
-$dbname = "system";
+$dbpass = "Kokokoko123!";
+$dbname = "PayrollSystem";
 
 if(!$con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
 {
 
-	die("failed to connect!");
+    die("failed to connect!");
 }
+?>

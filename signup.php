@@ -10,8 +10,8 @@
 <body>
     <?php
     session_start();
-    include ("navbar.php");
-    include ("sqlconnection.php");
+    include 'navbar.php';
+    include 'sqlconnection.php';
 
     // Check if the form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -26,10 +26,9 @@
 
         if (mysqli_num_rows($check_username_result) == 0) {
             // Username is available, proceed with registration
-            $query = "insert into UserLogin (EmployeeID, UserName, Password, Email, Phone, LastLogin) values (9,'$UserName','$Password', '$Email', '$Phone', NOW())";
-                  mysqli_query($con, $query);
+            $insert_query = "INSERT INTO UserLogin (UserName, Password, Email, Phone) VALUES ('$UserName', '$Password', '$Email', '$Phone')";
 
-            $result = mysqli_query($con, $insert_query);
+            $result = mysqli_query($conn, $insert_query);
 
             if ($result) {
                 echo "<div class='center'><h2>Registration successful. Please log in.</h2></div>";
