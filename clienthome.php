@@ -4,7 +4,6 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>Home Page</title>
   <link rel="stylesheet" type="text/css" href="home.css">
-  <link rel="stylesheet" type="text/css" href="navbar.css">
 </head>
 <body>
   <?php include 'navbar.php'; ?>
@@ -34,6 +33,6 @@
       </div>
     </div>
   </div>
-  
+
 </body>
 </html>
