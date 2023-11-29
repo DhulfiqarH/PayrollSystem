@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="home.css">
 </head>
 <body>
-  <?php include 'navbar.php'; ?>
+  <?php include 'cnavbar.php'?>
   <div class="container">
     <div class="graph-container">
       <h2>Income Overview</h2>

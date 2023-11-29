@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="signup.css">
+    <link rel="stylesheet" type="text/css" href="dropdown.css">
+
     <title>Sign Up</title>
 </head>
 <body>
     <?php
     session_start();
-    include 'navbar.php';
     include 'sqlconnection.php';
 
     // Check if the form is submitted
@@ -39,6 +40,13 @@
         }
     }
     ?>
+    <div class="dropdown">
+        <span class="cool-button animated-button">Option</span>
+        <div class="dropdown-content">
+          <a href="signup.php" class="cool-button animated-button">Signup</a>
+          <a href="signin.php" class="cool-button animated-button">Signin</a>
+        </div>
+    </div>
     <div class="signup-container">
         <h2>Sign Up</h2>
         <form action="signup.php" method="post">
