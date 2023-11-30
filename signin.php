@@ -58,7 +58,7 @@
             <label for="password">Password:</label>
             <input type="password" name="Password" required>
 
-            <button type="submit" name="signin">Sign In</button>
+            <button type="submit" class="cool-button animated-button" name="signin">Sign In</button>
         </form>
     </div>
 </body>
