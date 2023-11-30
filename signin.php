@@ -48,6 +48,9 @@
         <a href="signin.php" class="cool-button animated-button">Signin</a>
       </div>
   </div>
+  <video id="video-background" autoplay muted loop>
+      <source src="images/page.mp4" type="video/mp4">
+  </video>
     <div class="signin-container">
         <h2>Sign In</h2>
         <form action="signin.php" method="post">

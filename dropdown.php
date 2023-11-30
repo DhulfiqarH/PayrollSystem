@@ -20,6 +20,65 @@
 <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
   found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
   the messages app in the list of apps. </p>
+
+  <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+    found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+    the messages app in the list of apps. </p>
+
+    <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+      found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+      the messages app in the list of apps. </p>
+
+      <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+        found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+        the messages app in the list of apps. </p>
+
+        <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+          found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+          the messages app in the list of apps. </p>
+
+          <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+            found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+            the messages app in the list of apps. </p>
+
+            <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+              found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+              the messages app in the list of apps. </p>
+
+
+              <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+                found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+                the messages app in the list of apps. </p>
+
+                <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+                  found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+                  the messages app in the list of apps. </p>
+                  <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+                    found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+                    the messages app in the list of apps. </p>
+
+
+                    <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+                      found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+                      the messages app in the list of apps. </p>
+
+                      <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+                        found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+                        the messages app in the list of apps. </p>
+                        <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+                          found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+                          the messages app in the list of apps. </p>
+
+
+                          <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+                            found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+                            the messages app in the list of apps. </p>
+
+                            <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
+                              found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
+                              the messages app in the list of apps. </p>
+
+
 <script>
     function redirectTo(role) {
         if (role === 'client') {
@@ -29,6 +88,6 @@
         }
     }
 </script>
-
+<script src="scripts.js"></script>
 </body>
 </html>

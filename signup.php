@@ -52,6 +52,9 @@ echo 'Hello ' . htmlspecialchars($_POST["UserName"]) . '!';
           <a href="signin.php" class="cool-button animated-button">Signin</a>
         </div>
     </div>
+    <video id="video-background" autoplay muted loop>
+        <source src="images/page.mp4" type="video/mp4">
+    </video>
     <div class="signup-container">
         <h2>Sign Up</h2>
         <form action="signup.php" method="post">
