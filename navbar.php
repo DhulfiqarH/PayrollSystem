@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="attentance.css">
-  <title>Employee Records</title>
+  <link rel="stylesheet" type="text/css" href="navbar.css">
+  <link rel="stylesheet" type="text/css" href="dropdown.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <title>admin dash</title>
 </head>
 <body>
 <div class="Main-buttons">
@@ -15,8 +17,13 @@
     <a href="employee.php" class="cool-button animated-button">Employee list</a>
     <a href="department.php" class="cool-button animated-button">Department</a>
     <a href="deductionb.php" class="cool-button animated-button">Deduction List</a>
-    <a href="signup.php" class="cool-button animated-button">Signup</a>
-    <a href="signin.php" class="cool-button animated-button">Signin</a>
+</div>
+<div class="dropdown">
+    <span class="cool-button animated-button">Option</span>
+    <div class="dropdown-content">
+      <a href="signup.php" class="cool-button animated-button">Signup</a>
+      <a href="signin.php" class="cool-button animated-button">Signin</a>
+    </div>
 </div>
 </body>
 </html>
