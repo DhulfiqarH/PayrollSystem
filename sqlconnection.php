@@ -1,8 +1,10 @@
 <?php
-$dbhost = "127.0.0.1";
-$dbuser = "root";
-$dbpass = "Kokokoko123!";
-$dbname = "PayrollSystem";
+
+$dbhost = "studentdb-maria.gl.umbc.edu";
+$dbuser = "nsubba1";
+$dbpass = "nsubba1";
+$dbname = "nsubba1";
+// studentdb-maria.gl.umbc.edu","nsubba1","nsubba1","nsubba1"
 
 if(!$con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
 {
