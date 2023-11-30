@@ -15,8 +15,8 @@
     </div>
 </div>
 <video id="video-background" autoplay muted loop>
-      <source src="systems/images/page.mp4" type="page/mp4">
-  </video>
+    <source src="images/page.mp4" type="video/mp4">
+</video>
 <p>Androids have a messages app similar to Apple where Android text messages are stored. This app can be
   found in the previous ways mentioned above, but you can also find the messages app in your settings by clicking apps and then finding
   the messages app in the list of apps. </p>
