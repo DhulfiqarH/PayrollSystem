@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="signin.css">
-    <link rel="stylesheet" type="text/css" href="navbar.css">
+    <link rel="stylesheet" type="text/css" href="dropdown.css">
     <title>Sign In</title>
 </head>
 <body>
   <?php
   session_start();
-    include("navbar.php");
   	include("sqlconnection.php");
 
 
@@ -42,6 +41,13 @@
   	}
 
   ?>
+  <div class="dropdown">
+      <span class="cool-button animated-button">Option</span>
+      <div class="dropdown-content">
+        <a href="signup.php" class="cool-button animated-button">Signup</a>
+        <a href="signin.php" class="cool-button animated-button">Signin</a>
+      </div>
+  </div>
     <div class="signin-container">
         <h2>Sign In</h2>
         <form action="signin.php" method="post">
@@ -51,7 +57,7 @@
             <label for="password">Password:</label>
             <input type="password" name="Password" required>
 
-            <button type="submit" name="signin">Sign In</button>
+            <button type="submit" class="cool-button animated-button" name="signin">Sign In</button>
         </form>
     </div>
 </body>
