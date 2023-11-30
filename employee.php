@@ -3,12 +3,27 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <title>Employee Records</title>
+          <link rel="stylesheet" type="text/css" href="signin.css">
+
   <link rel="stylesheet" type="text/css" href="employeee.css">
+  <link rel="stylesheet" type="text/css" href="navbar.css">
+
 </head>
 <body>
   <?php include 'navbar.php';
-  include("sqlconnection.php");
+  include 'sqlconnection.php';
+  // Test query
+// Test query
+// $test_query = "INSERT INTO Employees (FirstName, LastName, PositionID, DepartmentID, HireDate, Role) VALUES ('Test', 'User', 1, 1, CURDATE(), 1)";
+// $test_result = mysqli_query($con, $test_query);
+// if ($test_result) {
+//     echo "<p>Test insert successful.</p>";
+// } else {
+//     echo "<p>Error in test insert: " . mysqli_error($con) . "</p>";
+// }
+
 
   // Check for a search query
   $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
@@ -34,6 +49,65 @@
     // Entry count
     echo "<p><strong>Showing " . mysqli_num_rows($result) . " entries</strong></p>";
     ?>
+
+<button id="addEmployeeBtn" class='btn btn-primary'>Add Employee</button>
+    <div id="employeeForm" class="signin-container" style="display: none;">
+        <h2>Add New Employee</h2>
+        <form action="employee.php" method="post">
+            <label for="FirstName">First Name:</label>
+            <input type="text" name="FirstName" required>
+
+            <label for="LastName">Last Name:</label>
+            <input type="text" name="LastName" required>
+
+            <label for="PositionID">PositionID:</label>
+            <input type="number" name="PositionID" required>
+
+            <label for="DepartmentID">DepartmentID:</label>
+            <input type="number" name="DepartmentID" required>
+
+            <!-- <label for="HireDate">Hire Date:</label>
+            <input type="text" name="HireDate" required> -->
+
+            <label for="Role">Role:</label>
+            <input type="number" name="Role" min="0" max="1" required>
+
+
+            <button class="btn-sign btn btn-primary" type="submit" name="reg_user">Add</button>
+                        <button class="btn-sign btn btn-danger" type="button">Cancel</button>
+
+
+        </form>
+    </div>
+    <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Assign POST data to variables
+  $FirstName = mysqli_real_escape_string($con, $_POST["FirstName"]);
+$LastName = mysqli_real_escape_string($con, $_POST["LastName"]);
+$PositionID = intval($_POST["PositionID"]);
+$DepartmentID = intval($_POST["DepartmentID"]);
+$Role = intval($_POST["Role"]);
+
+    // Construct the SQL query
+    // $add_employee_query = "CALL Add_Employee('$FirstName', '$LastName', '$PositionID', '$DepartmentID', CURRENT_DATE(), '$Role')";
+//  $add_employee_query = "CALL Add_Employee('Snoop', 'Dod', 1, 1, CURRENT_DATE(), 1)";
+// $add_employee_query = "INSERT INTO Employees (FirstName, LastName, PositionID, DepartmentID, HireDate, Role) VALUES ('Snoop', 'Dod', 1, 1, CURRENT_DATE(), 1)";
+$add_employee_query = "INSERT INTO Employees (FirstName, LastName, PositionID, DepartmentID, HireDate, Role) VALUES ('$FirstName', '$LastName', $PositionID, $DepartmentID, CURDATE(), $Role)";
+
+
+    // Execute the query
+
+    // Check for success or failure
+    $result_add = mysqli_query($con, $add_employee_query);
+if ($result_add) {
+    echo "<div class='center'><h2>Employee successfully Added</h2></div>";
+} else {
+    echo "<div class='center'><h2>Failed, Try Again</h2><br>Error: " . mysqli_error($con) . "</div>";
+}
+
+}
+?>
+
 
     <!-- Table -->
     <table>
@@ -88,5 +162,24 @@
       </tbody>
     </table>
   </div>
+  <script>
+  document.getElementById('addEmployeeBtn').addEventListener('click', function() {
+    document.getElementById('employeeForm').style.display = 'block';
+  });
+
+  // if cancel, hide the form
+  document.querySelector('.btn-danger').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent form submission
+        document.getElementById('employeeForm').style.display = 'none';
+
+  });
+
+  // once added, hide the button
+  // document.querySelector('.btn-primary[type="submit"]').addEventListener('click', function(event) {
+  //   // If you need to actually submit the form, remove the next line
+  //   event.preventDefault(); // Prevent form submission for demonstration
+  //   document.getElementById('employeeForm').style.display = 'none';
+  // });
+</script>
 </body>
 </html>

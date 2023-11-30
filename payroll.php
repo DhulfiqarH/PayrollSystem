@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Payroll System</title>
-    <link rel="stylesheet" type="text/css" href="payroll.css">
+    <link rel="stylesheet" type="text/css" href="navbar.css">
+        <link rel="stylesheet" type="text/css" href="payroll.css">
+
 </head>
 
 <body>
@@ -56,8 +59,8 @@
         $row["NetIncome"]. " </td><td>" .$row["DateProcessed"]. " </td><td>".
         "<button class='btn btn-primary'>Edit</button> " .
         "<button class='btn btn-danger'>Delete</button>"  .
-        "<button class='remove-button'>Remove</button> " .
-        "<button class='add-payroll-button'>Add Payroll</button>"  .
+        "<button class='btn btn-danger'>Remove</button> " .
+        "<button class='btn btn-primary'>Add Payroll</button>"  .
         "</td></tr>";
     }
 } else {
