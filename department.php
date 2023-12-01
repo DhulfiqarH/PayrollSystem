@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="employee_form.css">
   <link rel="stylesheet" type="text/css" href="department.css">
   <link rel="stylesheet" type="text/css" href="navbar.css">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -18,6 +19,22 @@
 
     $result = mysqli_query($con, $sql);
   ?>
+      <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $DepartmentName = mysqli_real_escape_string($con, $_POST["DepartmentName"]);
+        
+
+        $insert_query = "INSERT INTO Departments (DepartmentName) 
+        VALUES ('$DepartmentName')";
+        $insert_result = mysqli_query($con, $insert_query);
+
+        if ($insert_result) {
+            echo "<div class='center'><h2>Department successfully Added</h2></div>";
+        } else {
+            echo "<div class='center'><h2>Failed, Try Again</h2><br>Error: " . mysqli_error($con) . "</div>";
+        }
+    }
+    ?>
   <div class="container">
     <h2>Departments</h2>
 
@@ -30,14 +47,7 @@
         </tr>
       </thead>
       <tbody>
-        <!-- <tr>
-          <td>1</td>
-          <td class="department-link" onclick="window.location.href='department_employees.php?department=HR'">Human Resources</td>
-          <td class="action-column">
-            <button class="edit-btn">Edit</button>
-            <button class="delete-btn">Delete</button>
-          </td>
-        </tr> -->
+        
         <?php
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
@@ -53,5 +63,16 @@
       </tbody>
     </table>
   </div>
+  <div id="employeeForm" class="signin-container">
+        <h2>Add New Department</h2>
+        <form action="department.php" method="POST">
+            <label for="DepartmentName">Department Name:</label>
+            <input type="text" name="DepartmentName" required>
+
+            <button class="btn-sign btn btn-primary" type="submit" name="reg_user">Add</button>
+            <button class="btn-sign btn btn-danger" type="reset">Cancel</button>
+        </form>
+    </div>
+
 </body>
 </html>
