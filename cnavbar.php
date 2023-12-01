@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="Main-buttons">
-    <a href="home.php" class="cool-button animated-button">Home</a>
+    <a href="clienthome.php" class="cool-button animated-button">Home</a>
     <a href="attentance.php" class="cool-button animated-button">Attendance</a>
     <a href="payroll.php" class="cool-button animated-button">Payroll</a>
     <a href="deductionb.php" class="cool-button animated-button">Deduction List</a>
