@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Payroll System</title>
+        <link rel="stylesheet" type="text/css" href="employee_form.css">
+
     <link rel="stylesheet" type="text/css" href="navbar.css">
         <link rel="stylesheet" type="text/css" href="payroll.css">
 
@@ -18,6 +20,30 @@
 
 
     $result = mysqli_query($con, $sql); ?>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      // Deduction form submission
+      $EmployeeID = intval($_POST["EmployeeID"]);
+      $PayrollStartDate = mysqli_real_escape_string($con, $_POST["PayrollStartDate"]);
+      $PayrollEndDate = mysqli_real_escape_string($con, $_POST["PayrollEndDate"]);
+    //   echo "$PayrollDateTime";
+    //   echo "$PayrollDate";
+    //   $DeductionPer = $DeductionAmount / 100;
+
+      $insert_query_ded = "INSERT INTO Payroll
+    (EmployeeID, PeriodStartDate, PeriodEndDate, GrossIncome, NetIncome, DateProcessed)
+VALUES
+    ($EmployeeID, '$PayrollStartDate', '$PayrollEndDate', NULL, NULL, NOW())";
+
+      $insert_result_ded = mysqli_query($con, $insert_query_ded);
+
+      if ($insert_result_ded) {
+        echo "<div class='center'><h2>Payroll successfully Added</h2></div>";
+      } else {
+        echo "<div class='center'><h2>Failed, Try Again</h2><br>Error: " . mysqli_error($con) . "</div>";
+      }
+}
+      ?>
     <div class="payroll-container">
         <h2>Payroll</h2>
         <table class="payroll-table">
@@ -34,23 +60,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr>
-                 <td>1001</td>
-
-                    <td>EMP001</td>
-                    <td>2023-01-01</td>
-                    <td>2023-01-15</td>
-                    <td>2023-01-15</td>
-                    <td>2023-01-15</td>
-                    <td>Approved</td>
-                    <td>
-                        <button class="view-button">View</button>
-                        <button class="edit-button">Edit</button>
-                        <button class="remove-button">Remove</button>
-                        <button class="add-payroll-button">Add Payroll</button>
-                    </td>
-                </tr> -->
-                <!-- Add more rows as needed -->
+               
                 <?php
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
@@ -70,5 +80,28 @@
             </tbody>
         </table>
     </div>
+    <div id="employeeForm" class="signin-container">
+        <h2>Add New Payroll</h2>
+        <form action="payroll.php" method="POST">
+            <!-- <label for="PayrollDateTime">PayrollDateTime:</label>
+            <input type="datetime-local" name="PayrollDateTime" required> -->
+
+            <label for="EmployeeID">Employee ID:</label>
+            <input type="number" name="EmployeeID" required>
+
+            <label for="PayrollStartDate">Period Start Date:</label>
+            <input type="date" name="PayrollStartDate" required>
+
+            <label for="PayrollEndDate">Period End Date:</label>
+            <input type="date" name="PayrollEndDate" required>
+
+
+            <button class="btn-sign btn btn-primary" type="submit" name="payrollSubmit">Add</button>
+            <button class="btn-sign btn btn-danger" type="reset" name="payrollCancel">Cancel</button>
+        </form>
+        <!-- 
+       
+    </div>
+
 </body>
 </html>
