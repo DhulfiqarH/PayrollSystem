@@ -52,7 +52,7 @@
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr><td>" . $row["DepartmentID"]. "</td><td>" . $row["DepartmentName"]. " </td><td>" .
-        "<button class='btn btn-primary'>Edit</button> " .
+        "<button class='btn btn-primary' onclick='editDepartment(" . $row["DepartmentID"] . ")'>Edit</button> " . 
         "<button class='btn btn-danger'>Delete</button>"  .
         "</td></tr>";
     }
@@ -63,7 +63,23 @@
       </tbody>
     </table>
   </div>
-  <div id="employeeForm" class="signin-container">
+
+  <!-- edit form--> 
+  <div class="signin-container" id="editForm" style="display: none;">
+        <h2>Edit New Department</h2>
+        <form action="department.php" method="POST">
+          <label for="DepartmentID">Department ID to Edit:</label>
+            <input type="number" name="DepartmentID" required>
+
+            <label for="DepartmentName">New Department Name:</label>
+            <input type="text" name="DepartmentName" required>
+
+            <button class="btn-sign btn btn-primary" type="submit" name="deptEdit">Update</button>
+            <button class="btn-sign btn btn-danger" type="reset" id="removeDeptForm" onclick="removeEditFor()">Cancel</button>
+        </form>
+    </div>
+
+  <div class="signin-container" id="employeeForm" >
         <h2>Add New Department</h2>
         <form action="department.php" method="POST">
             <label for="DepartmentName">Department Name:</label>
@@ -73,6 +89,23 @@
             <button class="btn-sign btn btn-danger" type="reset">Cancel</button>
         </form>
     </div>
+<script>
+    function editDepartment(departmentID) {
+        var editForm = document.getElementById("editForm");
+        editForm.style.display = "block"; // Show the form
 
+
+        var departmentIDField = document.querySelector("input[name='DepartmentID']");
+        var departmentNameField = document.querySelector("input[name='DepartmentName']");
+        
+        departmentIDField.value = departmentID;
+        departmentNameField.value = departmentName;
+    }
+    function removeEditFor() {
+      var removeForm =document.getElementById("editForm");
+      removeForm.style.display = "none";
+    }
+    
+</script>
 </body>
 </html>

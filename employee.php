@@ -78,7 +78,13 @@
             echo "<p>Error fetching employees: " . mysqli_error($con) . "</p>";
         } else {
             echo "<p><strong>Showing " . mysqli_num_rows($result) . " entries</strong></p>";
-
+    //             	EmployeeID INT NOT NULL,
+	// StreetAddress VARCHAR(255),
+	// City VARCHAR(100),
+	// State VARCHAR(2),
+	// ZipCode VARCHAR(10),
+    // 	Email VARCHAR(255) NOT NULL UNIQUE,
+	// Phone VARCHAR(10) NOT NULL UNIQUE,
             echo '<table>
                     <thead>
                         <tr>
@@ -89,6 +95,13 @@
                             <th>Department</th>
                             <th>Hire Date</th>
                             <th>Role</th>
+                            <th>StreetAddress</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>ZipCode</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>UserName</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -103,6 +116,13 @@
                         <td>" . $row["DepartmentName"]. "</td>
                         <td>" . $row["HireDate"]. "</td>
                         <td>" . $row["Role"]. "</td>
+                        <td>" . $row["StreetAddress"]. "</td>
+                        <td>" . $row["City"]. "</td>
+                        <td>" . $row["State"]. "</td>
+                        <td>" . $row["ZipCode"]. "</td>
+                        <td>" . $row["Email"]. "</td>
+                        <td>" . $row["Phone"]. "</td>
+                        <td>" . $row["UserName"]. "</td>
                         <td>
                             <button class='btn btn-primary'>Edit</button>
                             <form method='POST' action=''>
