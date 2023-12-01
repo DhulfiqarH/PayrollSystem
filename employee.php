@@ -7,9 +7,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
 
     <title>Employee Records</title>
-    <link rel="stylesheet" type="text/css" href="signin.css">
-    <link rel="stylesheet" type="text/css" href="employeee.css">
-    <link rel="stylesheet" type="text/css" href="navbar.css">
+   <link rel="stylesheet" type="text/css" href="employee_form.css">
+  <link rel="stylesheet" type="text/css" href="employeee.css">
+  <link rel="stylesheet" type="text/css" href="navbar.css">
+
 </head>
 <body>
     <?php include 'navbar.php'; ?>

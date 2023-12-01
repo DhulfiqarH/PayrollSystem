@@ -1,28 +1,18 @@
-#video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-.signup-container {
-  position: absolute;
-  top: 150px; /* Adjust the top position as needed */
-  right: 50px; /* Adjust the right position as needed */
-  background-color: #fff;
-  width: 25%;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1; /* Place the signup container above the video */
-}
+/* signin.css */
 
 body {
   font-family: Arial, sans-serif;
   background-color: white;
   margin: 0;
+}
+
+.signin-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -74,4 +64,9 @@ button:hover {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.signin-container .btn-sign {
+  margin-top: 15px;
+  border-radius: 5px;
 }
