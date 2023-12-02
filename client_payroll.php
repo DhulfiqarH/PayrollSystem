@@ -13,10 +13,10 @@
 </head>
 
 <body>
-  <?php include 'navbar.php';
+  <?php include 'cnavbar.php';
   include("sqlconnection.php");
 
-      $sql = "SELECT * FROM Payroll";
+      $sql = "SELECT * FROM Payroll WHERE EmployeeID = 2";
 
 
     $result = mysqli_query($con, $sql); ?>
@@ -82,7 +82,7 @@ VALUES
     </div>
     <div id="employeeForm" class="signin-container">
         <h2>Add New Payroll</h2>
-        <form action="payroll.php" method="POST">
+        <form action="client_payroll.php" method="POST">
             <!-- <label for="PayrollDateTime">PayrollDateTime:</label>
             <input type="datetime-local" name="PayrollDateTime" required> -->
 

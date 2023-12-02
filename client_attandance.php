@@ -11,10 +11,10 @@
   <title>Timesheet</title>
 </head>
 <body>
-  <?php include 'navbar.php';
+  <?php include 'cnavbar.php';
   include("sqlconnection.php");
 
-      $sql = "SELECT * FROM Timesheet";
+      $sql = "SELECT * FROM Timesheet WHERE EmployeeID = 2";
 
 
     $result = mysqli_query($con, $sql);?>
@@ -37,7 +37,7 @@
       $insert_query_ded = "INSERT INTO Timesheet
 	(EmployeeID, StartTime, EndTime, TotalHoursWorked, OvertimeHours)
 VALUES
-	(1, '$sqlStartDatetime', '$sqlEndDatetime', $TotalHour, $OvertimeHours)";
+	($EmployeeID, '$sqlStartDatetime', '$sqlEndDatetime', $TotalHour, $OvertimeHours)";
 
       $insert_result_ded = mysqli_query($con, $insert_query_ded);
 
@@ -100,7 +100,7 @@ VALUES
   </div>
   <div id="employeeForm" class="signin-container">
         <h2>Add New Attendance</h2>
-        <form action="attentance.php" method="POST">
+        <form action="client_attandance.php" method="POST">
           <!-- 
             EmployeeID INT NOT NULL,
 	StartTime TIMESTAMP,

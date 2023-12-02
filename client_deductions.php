@@ -11,15 +11,24 @@
   <title>Deductions & Benefits</title>
 </head>
 <body>
-  <?php include 'navbar.php';
+  <?php include 'cnavbar.php';
   include("sqlconnection.php");
 
-      $sql = "SELECT * FROM Deductions";
+      $sql = "SELECT * FROM Deductions 
+JOIN EmployeeDeduction 
+ON Deductions.DeductionID = EmployeeDeduction.DeductionID 
+JOIN Employees 
+ON EmployeeDeduction.EmployeeID = Employees.EmployeeID WHERE Employees.EmployeeID = 1";
 
 
     $result = mysqli_query($con, $sql);
 
-    $sql_benefit = "SELECT * FROM Benefits";
+    $sql_benefit = "SELECT * FROM Benefits 
+JOIN EmployeeBenefit 
+ON Benefits.BenefitID = EmployeeBenefit.BenefitID 
+JOIN Employees 
+ON EmployeeBenefit.EmployeeID = Employees.EmployeeID 
+WHERE Employees.EmployeeID = 1";
     $result_benefit = mysqli_query($con, $sql_benefit);
     ?>
 <?php
@@ -97,7 +106,7 @@
     </table>
 <div id="employeeForm" class="signin-container">
         <h2>Add New Deduction</h2>
-        <form action="deductionb.php" method="POST">
+        <form action="client_deductions.php" method="POST">
             <label for="DeductionName">Deduction Name:</label>
             <input type="text" name="DeductionName" required>
 
@@ -142,7 +151,7 @@
   </div>
   <div id="employeeForm" class="signin-container">
         <h2>Add New Benefit</h2>
-        <form action="deductionb.php" method="POST">
+        <form action="client_deductions.php" method="POST">
             <label for="BenefitName">Benefit Name:</label>
             <input type="text" name="BenefitName" required>
 
