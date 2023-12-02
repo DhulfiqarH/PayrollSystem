@@ -95,7 +95,7 @@ if ($login_success) {
             <label for="Password">Password:</label>
             <input type="password" name="Password" required>
 
-            <button type="submit" class="cool-button animated-button" name="signin">Login In</button>
+            <button type="submit" class="cool-button animated-button" name="signin">Log In</button>
         </form>
         <p>If you don't have account, you can register here <a href="signup.php"> Sign Up </a></p>
         <h2>Demo:</h2>
