@@ -178,7 +178,7 @@
            
             <button type="submit" class="cool-button animated-button" name="signupbtn">Sign Up</button>
         </form>
-        <p>Already have account, please login here <a href="signin.php"> Sign Up </a></p>
+        <p>Already have account, please login here <a href="signin.php"> Sign In </a></p>
     </div>
 </body>
 </html>

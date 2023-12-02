@@ -13,6 +13,7 @@
   	include("sqlconnection.php");
     $login_success = false;
   $welcome_message = '';
+  $check_access = 0;
   ?>
   <?php 
   if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -38,8 +39,10 @@
                     $title = "";
                     if ($row["Role"] == 0) {
                         $title = "Admin";
+                        $check_access = 0;
                     } else {
                         $title = "Client";
+                        $check_access = 1;
                     }
                         $welcome_message = "<div class='center'><h2>Welcome " . $title . ", " . $row["FirstName"] ."</h2></div>";
                         $login_success = true;
@@ -59,15 +62,20 @@
   	}
   ?>
   <?php 
-  if ($login_success) {
+if ($login_success) {
     echo $welcome_message;
+
+    $redirectUrl = 'clienthome.php'; 
+    if ($check_access === 0) {
+        $redirectUrl = 'admindash.php'; 
+    }
     echo "<script>
       setTimeout(function() {
-        window.location.href = 'employee.php';
-      }, 2000); 
+        window.location.href = '$redirectUrl';
+      }, 500); 
     </script>";
-  }
-  ?>
+}
+?>
   <div class="dropdown">
       <span class="cool-button animated-button">Option</span>
       <div class="dropdown-content">
