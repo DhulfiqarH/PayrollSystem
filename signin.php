@@ -11,35 +11,62 @@
   <?php
   session_start();
   	include("sqlconnection.php");
-
-
-  	if($_SERVER['REQUEST_METHOD'] == "POST")
+    $login_success = false;
+  $welcome_message = '';
+  ?>
+  <?php 
+  if($_SERVER['REQUEST_METHOD'] == "POST")
   	{
   		//something was posted
-  		$UserName = $_POST['UserName'];
-  		$Password = $_POST['Password'];
+  		$UserName = mysqli_real_escape_string($con,$_POST['UserName']);
+  		$Password = mysqli_real_escape_string($con,$_POST['Password']);
 
-  		if(!empty($UserName) && !empty($Password) && !empty($Email) && !empty($Phone) && !is_numeric($UserName))
+  		if(!empty($UserName) && !empty($Password) && !is_numeric($UserName))
   		{
   			//read from database
-  			$sql = "select * from UserLogin where UserName = '$UserName' limit 1";
+  			$sql = "SELECT UserName FROM UserLogin WHERE UserName = '$UserName' AND Password = '$Password'";
   			$result = mysqli_query($con, $sql);
 
-  			if($result)
+  			if($result && mysqli_num_rows($result) > 0)
   			{
-  				if($result && mysqli_num_rows($result) > 0)
-  				{
-  					$user_data = mysqli_fetch_assoc($result);
-  				}
-  			}
+                // Get User Name
+                $getName = "SELECT FirstName, Role FROM Employees JOIN UserLogin ON Employees.EmployeeID = UserLogin.EmployeeID WHERE UserLogin.UserName = '$UserName' AND UserLogin.Password = '$Password'";
 
-  			echo "wrong username or password!";
+                $get_name_result = mysqli_query($con, $getName);
+
+                while ($row = mysqli_fetch_assoc($get_name_result)) {
+                    $title = "";
+                    if ($row["Role"] == 0) {
+                        $title = "Admin";
+                    } else {
+                        $title = "Client";
+                    }
+                        $welcome_message = "<div class='center'><h2>Welcome " . $title . ", " . $row["FirstName"] ."</h2></div>";
+                        $login_success = true;
+
+                }
+
+  			} else {
+                echo "<div class='center'><h2>Invalid Username or Password, try again</h2></div>";
+
+            }
+
   		}else
   		{
-  			echo "wrong username or password!";
+            echo "<div class='center'><h2>Please enter all data</h2></div>";
+  			
   		}
   	}
-
+  ?>
+  <?php 
+  if ($login_success) {
+    echo $welcome_message;
+    echo "<script>
+      setTimeout(function() {
+        window.location.href = 'employee.php';
+      }, 2000); 
+    </script>";
+  }
   ?>
   <div class="dropdown">
       <span class="cool-button animated-button">Option</span>
@@ -54,14 +81,15 @@
     <div class="signin-container">
         <h2>Sign In</h2>
         <form action="signin.php" method="post">
-            <label for="username">Username:</label>
+            <label for="UserName">Username:</label>
             <input type="text" name="UserName" required>
 
-            <label for="password">Password:</label>
+            <label for="Password">Password:</label>
             <input type="password" name="Password" required>
 
-            <button type="submit" class="cool-button animated-button" name="signin">Sign In</button>
+            <button type="submit" class="cool-button animated-button" name="signin">Login In</button>
         </form>
+        <p>If you don't have account, you can register here <a href="signup.php"> Sign Up </a></p>
     </div>
 </body>
 </html>

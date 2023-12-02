@@ -75,7 +75,9 @@
     }
     }
     ?>
-
+ <video id="video-background" autoplay muted loop>
+      <source src="images/page.mp4" type="video/mp4">
+  </video>
 
     <div class="dropdown">
         <span class="cool-button animated-button">Option</span>
@@ -176,6 +178,7 @@
            
             <button type="submit" class="cool-button animated-button" name="signupbtn">Sign Up</button>
         </form>
+        <p>Already have account, please login here <a href="signin.php"> Sign Up </a></p>
     </div>
 </body>
 </html>
