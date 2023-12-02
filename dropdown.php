@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="dropdown">
-    <span class="cool-button animated-button">Option</span>
+    <span class="cool-button animated-button">Sign In</span>
     <div class="dropdown-content">
         <a class="cool-button animated-button" onclick="redirectTo('client')">Client Dashboard</a>
         <a class="cool-button animated-button" onclick="redirectTo('admin')">Admin Dashboard</a>
@@ -20,11 +20,12 @@
 
 <script>
     function redirectTo(role) {
-        if (role === 'client') {
-            window.location.href = 'clienthome.php';
-        } else if (role === 'admin') {
-            window.location.href = 'admindash.php';
-        }
+        window.location.href = 'signin.php';
+        // if (role === 'client') {
+        //     window.location.href = 'clienthome.php';
+        // } else if (role === 'admin') {
+        //     window.location.href = 'admindash.php';
+        // }
     }
 </script>
 <script src="scripts.js"></script>
