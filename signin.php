@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,16 @@
     <link rel="stylesheet" type="text/css" href="dropdown.css">
     <title>Sign In</title>
 </head>
+
 <body>
-  <?php
+    <?php
   session_start();
   	include("sqlconnection.php");
     $login_success = false;
   $welcome_message = '';
   $check_access = 0;
   ?>
-  <?php 
+    <?php 
   if($_SERVER['REQUEST_METHOD'] == "POST")
   	{
   		//something was posted
@@ -36,6 +38,7 @@
                 $get_name_result = mysqli_query($con, $getName);
 
                 while ($row = mysqli_fetch_assoc($get_name_result)) {
+
                     $title = "";
                     if ($row["Role"] == 0) {
                         $title = "Admin";
@@ -61,7 +64,7 @@
   		}
   	}
   ?>
-  <?php 
+    <?php 
 if ($login_success) {
     echo $welcome_message;
 
@@ -76,16 +79,16 @@ if ($login_success) {
     </script>";
 }
 ?>
-  <div class="dropdown">
-      <span class="cool-button animated-button">Option</span>
-      <div class="dropdown-content">
-        <a href="signup.php" class="cool-button animated-button">Signup</a>
-        <a href="signin.php" class="cool-button animated-button">Signin</a>
-      </div>
-  </div>
-  <video id="video-background" autoplay muted loop>
-      <source src="images/page.mp4" type="video/mp4">
-  </video>
+    <div class="dropdown">
+        <span class="cool-button animated-button">Option</span>
+        <div class="dropdown-content">
+            <a href="signup.php" class="cool-button animated-button">Signup</a>
+            <a href="signin.php" class="cool-button animated-button">Signin</a>
+        </div>
+    </div>
+    <video id="video-background" autoplay muted loop>
+        <source src="images/page.mp4" type="video/mp4">
+    </video>
     <div class="signin-container">
         <h2>Sign In</h2>
         <form action="signin.php" method="post">
@@ -103,4 +106,5 @@ if ($login_success) {
         <p>Client: Username: thomas107, Password: Thomas@107 </p>
     </div>
 </body>
+
 </html>
