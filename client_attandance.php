@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="stylesheet" type="text/css" href="employee_form.css">
 
-  <link rel="stylesheet" type="text/css" href="attentancee.css">
-  <link rel="stylesheet" type="text/css" href="navbar.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <title>Timesheet</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="employee_form.css">
+
+    <link rel="stylesheet" type="text/css" href="attentancee.css">
+    <link rel="stylesheet" type="text/css" href="navbar.css">
+
+    <title>Timesheet</title>
 </head>
+
 <body>
-  <?php include 'cnavbar.php';
+    <?php include 'cnavbar.php';
   include("sqlconnection.php");
 
       $sql = "SELECT * FROM Timesheet WHERE EmployeeID = 2";
@@ -44,24 +48,24 @@ VALUES
       }
 }
       ?>
-  <div class="container">
-    <h2>TimeSheet</h2>
+    <div class="container">
+        <h2>TimeSheet</h2>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Timesheet ID</th>
-          <th>Employee ID</th>
-          <th>StartTime</th>
-          <th>EndTime</th>
-          <th>Total Hours Worked</th>
-          <th>OverTime</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-  
-        <?php
+        <table>
+            <thead>
+                <tr>
+                    <th>Timesheet ID</th>
+                    <th>Employee ID</th>
+                    <th>StartTime</th>
+                    <th>EndTime</th>
+                    <th>Total Hours Worked</th>
+                    <th>OverTime</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr><td>" . $row["TimesheetID"]. "</td><td>" . $row["EmployeeID"]. "</td><td>". $row["StartTime"]. " </td><td>" . $row["EndTime"]. "</td><td>" . $row["TotalHoursWorked"]. " </td><td>".
@@ -74,33 +78,34 @@ VALUES
     echo "0 results";
 }
         ?>
-      </tbody>
-    </table>
-  </div>
-  <div id="employeeForm" class="signin-container">
+            </tbody>
+        </table>
+    </div>
+    <div id="employeeForm" class="signin-container">
         <h2>Add New Attendance</h2>
         <form action="client_attandance.php" method="POST">
 
             <label for="EmployeeID">Employee ID:</label>
             <input type="number" name="EmployeeID" required>
-            
+
             <label for="StartTime">Clock-In Time:</label>
             <input type="datetime-local" name="StartTime" required>
-            
+
             <label for="EndTime">Clock-Out Time:</label>
             <input type="datetime-local" name="EndTime" required>
-            
+
             <label for="TotalHour">Total Hour:</label>
             <input type="number" name="TotalHour" required>
 
             <label for="OvertimeHours">Over-time Hours:</label>
             <input type="number" name="OvertimeHours" required>
-            
-  
-            
+
+
+
             <button class="btn-sign btn btn-primary" type="submit" name="timesheetbtn">Add</button>
             <button class="btn-sign btn btn-danger" type="reset">Cancel</button>
         </form>
     </div>
 </body>
+
 </html>

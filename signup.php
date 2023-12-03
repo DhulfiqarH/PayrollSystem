@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,13 @@
 
     <title>Sign Up</title>
 </head>
+
 <body>
     <?php
     session_start();
     include 'sqlconnection.php';
     ?>
-<?php
+    <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $employeeid = intval($_POST["employeeid"]);
         $UserName = mysqli_real_escape_string($con, $_POST["UserName"]);
@@ -75,25 +77,25 @@
     }
     }
     ?>
- <video id="video-background" autoplay muted loop>
-      <source src="images/page.mp4" type="video/mp4">
-  </video>
+    <video id="video-background" autoplay muted loop>
+        <source src="images/page.mp4" type="video/mp4">
+    </video>
 
-    <div class="dropdown">
+    <!-- <div class="dropdown">
         <span class="cool-button animated-button">Option</span>
         <div class="dropdown-content">
           <a href="signup.php" class="cool-button animated-button">Signup</a>
           <a href="signin.php" class="cool-button animated-button">Signin</a>
         </div>
-    </div>
+    </div> -->
 
-    
+
 
     <div class="signup-container">
         <h2>Sign Up</h2>
         <form action="signup.php" method="post">
 
-        <label for="employeeid">Employee ID:</label>
+            <label for="employeeid">Employee ID:</label>
             <input type="number" name="employeeid" placeholder="1" required>
 
             <label for="UserName">Username:</label>
@@ -106,7 +108,8 @@
             <input type="email" name="Email" placeholder="johndoe101@gmail.com" required>
 
             <label for="Phone">Phone:</label>
-            <input type="text" name="Phone" placeholder="4434205000" pattern="\d{10}" title="Phone number should be 10 digits (EX:4434205000)" maxlength="10" required>
+            <input type="text" name="Phone" placeholder="4434205000" pattern="\d{10}"
+                title="Phone number should be 10 digits (EX:4434205000)" maxlength="10" required>
 
             <label for="Address">Address:</label>
             <input type="text" name="Address" placeholder="2000 Main Street" required>
@@ -173,12 +176,14 @@
             </select>
 
             <label for="ZipCode">ZipCode:</label>
-            <input type="text" name="ZipCode" placeholder="21237" pattern="\d{5}" title="ZipCode should be 5 digits" maxlength="5" required>
+            <input type="text" name="ZipCode" placeholder="21237" pattern="\d{5}" title="ZipCode should be 5 digits"
+                maxlength="5" required>
 
-           
+
             <button type="submit" class="cool-button animated-button" name="signupbtn">Sign Up</button>
         </form>
         <p>Already have account, please login here <a href="signin.php"> Sign In </a></p>
     </div>
 </body>
+
 </html>
