@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="employee_form.css">
     <link rel="stylesheet" type="text/css" href="department.css">
     <link rel="stylesheet" type="text/css" href="navbar.css">
+
+
     <title>Department Page</title>
 </head>
 
