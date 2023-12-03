@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="employee_form.css">
 
-  <link rel="stylesheet" type="text/css" href="deductionb.css">
-  <link rel="stylesheet" type="text/css" href="navbar.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <title>Deductions & Benefits</title>
+    <link rel="stylesheet" type="text/css" href="deductionb.css">
+    <link rel="stylesheet" type="text/css" href="navbar.css">
+
+    <title>Deductions & Benefits</title>
 </head>
+
 <body>
-  <?php include 'navbar.php';
+    <?php include 'navbar.php';
   include("sqlconnection.php");
 
       $sql = "SELECT * FROM Deductions";
@@ -22,7 +26,7 @@
     $sql_benefit = "SELECT * FROM Benefits";
     $result_benefit = mysqli_query($con, $sql_benefit);
     ?>
-<?php
+    <?php
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["deductionSubmit"])) {
       // Deduction form submission
@@ -56,22 +60,22 @@
     }
   }
   ?>
-  <div class="container">
-    <h2>Deductions</h2>
+    <div class="container">
+        <h2>Deductions</h2>
 
-    <!-- add functionality -->
-    <table>
-      <thead>
-        <tr>
-          <th>Deduction ID</th>
-          <th>Deduction Name</th>
-          <th>Amount</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-       
-         <?php
+        <!-- add functionality -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Deduction ID</th>
+                    <th>Deduction Name</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr><td>" . $row["DeductionID"]. "</td><td>" . $row["DeductionName"]. " </td><td>" . $row["Amount"]. " </td><td>" .
@@ -84,36 +88,36 @@
 }
         ?>
 
-      </tbody>
-    </table>
-<div id="employeeForm" class="signin-container">
-        <h2>Add New Deduction</h2>
-        <form action="deductionb.php" method="POST">
-            <label for="DeductionName">Deduction Name:</label>
-            <input type="text" name="DeductionName" required>
+            </tbody>
+        </table>
+        <div id="employeeForm" class="signin-container">
+            <h2>Add New Deduction</h2>
+            <form action="deductionb.php" method="POST">
+                <label for="DeductionName">Deduction Name:</label>
+                <input type="text" name="DeductionName" required>
 
-            <label for="DeductionAmount">Deduction Percentage:</label>
-            <input type="number" name="DeductionAmount" placeholder="Please enter a number" required>
+                <label for="DeductionAmount">Deduction Percentage:</label>
+                <input type="number" name="DeductionAmount" placeholder="Please enter a number" required>
 
-            <button class="btn-sign btn btn-primary" type="submit" name="deductionSubmit">Add</button>
-            <button class="btn-sign btn btn-danger" type="reset" name="deductionCancel">Cancel</button>
-        </form>
-    </div>
+                <button class="btn-sign btn btn-primary" type="submit" name="deductionSubmit">Add</button>
+                <button class="btn-sign btn btn-danger" type="reset" name="deductionCancel">Cancel</button>
+            </form>
+        </div>
 
         <h2>Benefits</h2>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Benefit ID</th>
-          <th>Benefit Name</th>
-          <th>Benefit Description</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
+        <table>
+            <thead>
+                <tr>
+                    <th>Benefit ID</th>
+                    <th>Benefit Name</th>
+                    <th>Benefit Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
 
-        <?php
+                <?php
         if (mysqli_num_rows($result_benefit) > 0) {
           while ($row = mysqli_fetch_assoc($result_benefit)) {
         echo "<tr><td>" . $row["BenefitID"]. "</td><td>" . $row["BenefitName"]. " </td><td>" . $row["BenefitDesciption"]. " </td><td>" .
@@ -126,10 +130,10 @@
 }
         ?>
 
-      </tbody>
-    </table>
-  </div>
-  <div id="employeeForm" class="signin-container">
+            </tbody>
+        </table>
+    </div>
+    <div id="employeeForm" class="signin-container">
         <h2>Add New Benefit</h2>
         <form action="deductionb.php" method="POST">
             <label for="BenefitName">Benefit Name:</label>
@@ -144,4 +148,5 @@
     </div>
 
 </body>
+
 </html>
