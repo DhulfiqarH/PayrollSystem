@@ -58,20 +58,26 @@ VALUES
             <tbody>
                
                 <?php
-        if (mysqli_num_rows($result) > 0) {
-          while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>" . $row["PayrollID"]. "</td><td>" . $row["EmployeeID"]. " </td><td>" . $row["PeriodStartDate"]. "</td><td>" . $row["PeriodEndDate"]. " </td><td>".
-        $row["GrossIncome"]. " </td><td>" .
-        $row["NetIncome"]. " </td><td>" .$row["DateProcessed"]. " </td><td>".
-        "<button class='btn btn-primary'>Edit</button> " .
-        "<button class='btn btn-danger'>Delete</button>"  .
-       
-        "</td></tr>";
-    }
-} else {
-    echo "0 results";
-}
-        ?>
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>
+                                <td>" . $row["PayrollID"] . "</td>
+                                <td>" . $row["EmployeeID"] . "</td>
+                                <td>" . $row["PeriodStartDate"] . "</td>
+                                <td>" . $row["PeriodEndDate"] . "</td>
+                                <td>" . $row["GrossIncome"] . "</td>
+                                <td>" . $row["NetIncome"] . "</td>
+                                <td>" . $row["DateProcessed"] . "</td>
+                                <td>
+                                    <button class='btn btn-primary'>Edit</button>
+                                    <button class='btn btn-danger'>Delete</button>
+                                </td>
+                            </tr>";
+                    }
+                } else {
+                    echo "0 results";
+                }
+                ?>
             </tbody>
         </table>
     </div>
