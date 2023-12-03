@@ -34,7 +34,7 @@
       $DeductionAmount = mysqli_real_escape_string($con, $_POST["DeductionAmount"]);
       $DeductionPer = $DeductionAmount / 100;
 
-      $insert_query_ded = "INSERT INTO Deductions (DeductionName, Amount) 
+      $insert_query_ded = "INSERT INTO Deductions (DeductionName, Amount)
       VALUES ('$DeductionName', '$DeductionPer')";
       $insert_result_ded = mysqli_query($con, $insert_query_ded);
 
@@ -48,7 +48,7 @@
       $BenefitName = mysqli_real_escape_string($con, $_POST["BenefitName"]);
       $BenefitDesciption = mysqli_real_escape_string($con, $_POST["BenefitDescription"]);
 
-      $insert_query = "INSERT INTO Benefits (BenefitName, BenefitDesciption) 
+      $insert_query = "INSERT INTO Benefits (BenefitName, BenefitDesciption)
       VALUES ('$BenefitName', '$BenefitDesciption')";
       $insert_result = mysqli_query($con, $insert_query);
 
@@ -148,5 +148,6 @@
     </div>
 
 </body>
+
 
 </html>
