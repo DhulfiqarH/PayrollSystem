@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="employee_form.css">
     <link rel="stylesheet" type="text/css" href="attentancee.css">
     <link rel="stylesheet" type="text/css" href="navbar.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Timesheet</title>
 </head>
 
 <body>
-    <?php 
+    <?php
     include 'navbar.php';
     include("sqlconnection.php");
 
@@ -31,7 +31,7 @@
         $sqlEndDatetime = date("Y-m-d H:i:s", strtotime($EndTime));
 
         $insert_query_ded = "INSERT INTO Timesheet (EmployeeID, StartTime, EndTime, TotalHoursWorked, OvertimeHours) VALUES (1, '$sqlStartDatetime', '$sqlEndDatetime', $TotalHour, $OvertimeHours)";
-        
+
         $insert_result_ded = mysqli_query($con, $insert_query_ded);
 
         if ($insert_result_ded) {
