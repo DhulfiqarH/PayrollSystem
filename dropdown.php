@@ -19,8 +19,8 @@
 </video>
 
 <script>
-    function redirectTo(role) {
-        window.location.href = 'signin.php';
+        //function redirectTo(role) {
+        //window.location.href = 'signin.php';
         // if (role === 'client') {
         //     window.location.href = 'clienthome.php';
         // } else if (role === 'admin') {
