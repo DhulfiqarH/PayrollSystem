@@ -194,12 +194,6 @@
         </form>
     </div>
 
-    <!-- javascript -->
-    <script>
-        // function deleteLink(employeeId) {
-        //   location.href = "";
-        //   // console.log("Employee id: " + employeeId);
-        // }
-    </script>
+    
 </body>
 </html>

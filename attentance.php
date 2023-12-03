@@ -29,15 +29,10 @@
 
       $sqlStartDatetime = date("Y-m-d H:i:s", strtotime($StartTime));
       $sqlEndDatetime = date("Y-m-d H:i:s", strtotime($EndTime));
-
-    //   echo "$PayrollDateTime";
-    //   echo "$PayrollDate";
-    //   $DeductionPer = $DeductionAmount / 100;
-
       $insert_query_ded = "INSERT INTO Timesheet
-	(EmployeeID, StartTime, EndTime, TotalHoursWorked, OvertimeHours)
-VALUES
-	(1, '$sqlStartDatetime', '$sqlEndDatetime', $TotalHour, $OvertimeHours)";
+	    (EmployeeID, StartTime, EndTime, TotalHoursWorked, OvertimeHours)
+      VALUES
+	    (1, '$sqlStartDatetime', '$sqlEndDatetime', $TotalHour, $OvertimeHours)";
 
       $insert_result_ded = mysqli_query($con, $insert_query_ded);
 
@@ -50,13 +45,6 @@ VALUES
       ?>
   <div class="container">
     <h2>TimeSheet</h2>
-
-    <!-- add functionality -->
-    <!-- <input type="text" class="textbox" placeholder="Search by employee number or name"> -->
-
-    <!-- count using PHP -->
-    <!-- <p><strong>Showing 0 entries</strong></p> -->
-
     <table>
       <thead>
         <tr>
@@ -70,26 +58,23 @@ VALUES
         </tr>
       </thead>
       <tbody>
-        <!-- PHP data -->
-        <!-- <tr>
-          <td>EMP001</td>
-          <td>9:00</td>
-          <td>10:10</td>
-          <td>1.1 hours</td>
-          <td>0</td>
-          <td>
-            <button class="btn btn-primary">Edit</button>
-            <button class="btn btn-danger">Delete</button>
-          </td>
-        </tr> -->
         <?php
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>" . $row["TimesheetID"]. "</td><td>" . $row["EmployeeID"]. "</td><td>". $row["StartTime"]. " </td><td>" . $row["EndTime"]. "</td><td>" . $row["TotalHoursWorked"]. " </td><td>".
-        $row["OvertimeHours"]. " </td><td>" .
-        "<button class='btn btn-primary'>Edit</button> " .
-        "<button class='btn btn-danger'>Delete</button>"  .
-        "</td></tr>";
+            echo 
+            "<tr>
+                <td>" . $row["TimesheetID"]. "</td>
+                <td>" . $row["EmployeeID"]. "</td>
+                <td>". $row["StartTime"]. " </td>
+                <td>" . $row["EndTime"]. "</td>
+                <td>" . $row["TotalHoursWorked"]. " </td>
+                <td>".
+                $row["OvertimeHours"]. " </td>
+                <td>" .
+                  "<button class='btn btn-primary'>Edit</button> " .
+                  "<button class='btn btn-danger'>Delete</button>"  .
+                "</td>
+            </tr>";
     }
 } else {
     echo "0 results";
@@ -101,14 +86,6 @@ VALUES
   <div id="employeeForm" class="signin-container">
         <h2>Add New Attendance</h2>
         <form action="attentance.php" method="POST">
-          <!-- 
-            EmployeeID INT NOT NULL,
-	StartTime TIMESTAMP,
-	EndTime TIMESTAMP,
-	TotalHoursWorked DECIMAL(10, 2),
-	OvertimeHours DECIMAL(10, 2),
-
-           -->
             <label for="EmployeeID">Employee ID:</label>
             <input type="number" name="EmployeeID" required>
             
@@ -123,9 +100,7 @@ VALUES
 
             <label for="OvertimeHours">Over-time Hours:</label>
             <input type="number" name="OvertimeHours" required>
-            
-  
-            
+
             <button class="btn-sign btn btn-primary" type="submit" name="timesheetbtn">Add</button>
             <button class="btn-sign btn btn-danger" type="reset">Cancel</button>
         </form>

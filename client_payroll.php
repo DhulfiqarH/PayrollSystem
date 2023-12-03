@@ -22,14 +22,10 @@
     $result = mysqli_query($con, $sql); ?>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      // Deduction form submission
       $EmployeeID = intval($_POST["EmployeeID"]);
       $PayrollStartDate = mysqli_real_escape_string($con, $_POST["PayrollStartDate"]);
       $PayrollEndDate = mysqli_real_escape_string($con, $_POST["PayrollEndDate"]);
-    //   echo "$PayrollDateTime";
-    //   echo "$PayrollDate";
-    //   $DeductionPer = $DeductionAmount / 100;
-
+    
       $insert_query_ded = "INSERT INTO Payroll
     (EmployeeID, PeriodStartDate, PeriodEndDate, GrossIncome, NetIncome, DateProcessed)
 VALUES
@@ -83,9 +79,7 @@ VALUES
     <div id="employeeForm" class="signin-container">
         <h2>Add New Payroll</h2>
         <form action="client_payroll.php" method="POST">
-            <!-- <label for="PayrollDateTime">PayrollDateTime:</label>
-            <input type="datetime-local" name="PayrollDateTime" required> -->
-
+           
             <label for="EmployeeID">Employee ID:</label>
             <input type="number" name="EmployeeID" required>
 
@@ -95,11 +89,10 @@ VALUES
             <label for="PayrollEndDate">Period End Date:</label>
             <input type="date" name="PayrollEndDate" required>
 
-
             <button class="btn-sign btn btn-primary" type="submit" name="payrollSubmit">Add</button>
             <button class="btn-sign btn btn-danger" type="reset" name="payrollCancel">Cancel</button>
         </form>
-        <!-- 
+       
        
     </div>
 
