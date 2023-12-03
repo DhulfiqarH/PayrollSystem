@@ -79,13 +79,13 @@ if ($login_success) {
     </script>";
 }
 ?>
-    <div class="dropdown">
+    <!-- <div class="dropdown">
         <span class="cool-button animated-button">Option</span>
         <div class="dropdown-content">
             <a href="signup.php" class="cool-button animated-button">Signup</a>
             <a href="signin.php" class="cool-button animated-button">Signin</a>
         </div>
-    </div>
+    </div> -->
     <video id="video-background" autoplay muted loop>
         <source src="images/page.mp4" type="video/mp4">
     </video>
