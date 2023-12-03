@@ -1,64 +1,76 @@
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  /* background-image: url(images/dashimg.jpeg); */
 }
-
+body,
+html {
+  height: 100%;
+}
 .dropdown {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: white;
-    padding: 20px;
-    text-align: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 20px;
+  text-align: center;
+  z-index: 1000;
 }
 
 .cool-button {
-    background-color: white;
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .cool-button:hover {
-    background-color: grey;
-    color: white;
+  background-color: grey;
+  color: white;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    min-width: 160px;
-    z-index: 1;
-    top: 100%;
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 2;
+  top: 80%;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
 
 .animated-button {
-    animation: coolAnimation 1s ease-in-out;
+  animation: coolAnimation 1s ease-in-out;
 }
 
 @keyframes coolAnimation {
-    0% {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+#video-background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  overflow: hidden;
 }

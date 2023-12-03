@@ -10,10 +10,10 @@
 </head>
 <body>
 <div class="Main-buttons">
-    <a href="home.php" class="cool-button animated-button">Home</a>
-    <a href="attentance.php" class="cool-button animated-button">Attendance</a>
-    <a href="payroll.php" class="cool-button animated-button">Payroll</a>
-    <a href="deductionb.php" class="cool-button animated-button">Deduction List</a>
+    <a href="clienthome.php" class="cool-button animated-button">Home</a>
+    <a href="client_attandance.php" class="cool-button animated-button">Attendance</a>
+    <a href="client_payroll.php" class="cool-button animated-button">Payroll</a>
+    <a href="client_deductions.php" class="cool-button animated-button">Deduction List</a>
 </div>
 <div class="dropdown">
     <span class="cool-button animated-button">Option</span>
