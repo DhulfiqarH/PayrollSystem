@@ -69,8 +69,6 @@ VALUES
         $row["NetIncome"]. " </td><td>" .$row["DateProcessed"]. " </td><td>".
         "<button class='btn btn-primary'>Edit</button> " .
         "<button class='btn btn-danger'>Delete</button>"  .
-        "<button class='btn btn-danger'>Remove</button> " .
-        "<button class='btn btn-primary'>Add Payroll</button>"  .
         "</td></tr>";
     }
 } else {
