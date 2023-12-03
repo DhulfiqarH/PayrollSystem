@@ -33,7 +33,7 @@
         $emp_exist_result = mysqli_query($con, $check_emp_exist);
 
         if ($emp_exist_result && mysqli_num_rows($emp_exist_result) > 0) {
-            
+
             // check if user name exist
             $user_name_query = "SELECT UserName FROM UserLogin WHERE UserName = '$UserName'";
             $user_name_query_result = mysqli_query ($con, $user_name_query);
@@ -57,7 +57,7 @@
                echo "<div class='center'><h2>Phone already exist, please use different number or login</h2></div>";
 
             } else {
-                $insert_query = "INSERT INTO UserLogin (EmployeeID, Email, Phone, UserName, Password, LastLogin) 
+                $insert_query = "INSERT INTO UserLogin (EmployeeID, Email, Phone, UserName, Password, LastLogin)
                 VALUES ($employeeid, '$Email', '$Phone','$UserName','$Password', NOW())";
                 $insert_result = mysqli_query($con, $insert_query);
 
@@ -182,8 +182,11 @@
 
             <button type="submit" class="cool-button animated-button" name="signupbtn">Sign Up</button>
         </form>
-        <p>Already have account, please login here <a href="signin.php"> Sign In </a></p>
+        <div>
+        <p>Already have an account? <a href="signin.php"> Sign In </a>
+      </div>
     </div>
 </body>
+
 
 </html>

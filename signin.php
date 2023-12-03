@@ -17,7 +17,7 @@
   $welcome_message = '';
   $check_access = 0;
   ?>
-    <?php 
+    <?php
   if($_SERVER['REQUEST_METHOD'] == "POST")
   	{
   		//something was posted
@@ -60,22 +60,22 @@
   		}else
   		{
             echo "<div class='center'><h2>Please enter all data</h2></div>";
-  			
+
   		}
   	}
   ?>
-    <?php 
+    <?php
 if ($login_success) {
     echo $welcome_message;
 
-    $redirectUrl = 'clienthome.php'; 
+    $redirectUrl = 'clienthome.php';
     if ($check_access === 0) {
-        $redirectUrl = 'admindash.php'; 
+        $redirectUrl = 'admindash.php';
     }
     echo "<script>
       setTimeout(function() {
         window.location.href = '$redirectUrl';
-      }, 500); 
+      }, 500);
     </script>";
 }
 ?>
@@ -100,7 +100,7 @@ if ($login_success) {
 
             <button type="submit" class="cool-button animated-button" name="signin">Log In</button>
         </form>
-        <p>If you don't have account, you can register here <a href="signup.php"> Sign Up </a></p>
+        <p>----  Don't have an account?  <a href="signup.php" class="cool-button animated-button"> Sign Up </a></p>
         <h2>Demo:</h2>
         <p>Admin: Username: jackson101, Password: Jackson@101</p>
         <p>Client: Username: thomas107, Password: Thomas@107 </p>

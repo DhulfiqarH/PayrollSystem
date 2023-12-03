@@ -14,14 +14,27 @@
         <a class="cool-button animated-button" onclick="redirectTo('admin')">Admin Dashboard</a>
     </div>
 </div>
+<div>
+    <img id="logo" src="images/black_logo.png" alt="Your Logo">
+</div>
 <video id="video-background" autoplay muted loop>
     <source src="images/page.MP4" type="video/mp4">
 </video>
+<div class="company-info">
+    <h1>Company Name</h1>
+    <p>Some information about your company goes here.</p>
+</div>
+
+<div class="additional-content">
+    <h2>Additional Content</h2>
+    <p>This is additional content below the video. Add more details here.</p>
+</div>
+
 
 <script>
     function redirectTo(role) {
         window.location.href = 'signin.php';
-       
+
     }
 </script>
 <script src="scripts.js"></script>
