@@ -74,3 +74,26 @@ html {
   z-index: -1;
   overflow: hidden;
 }
+
+.name {
+  position: fixed;
+  top: 20px;
+  right: 200px;
+  padding: 20px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.name-cool {
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}

@@ -19,8 +19,10 @@
 </div>
 <div class="dropdown">
           <a href="dropdown.php" class="cool-button animated-button">Log Out</a>
-    </div>
-
 </div>
+  <!-- <div class="name">
+          <p class="name-cool">Hello Admin</p>
+    </div> -->
+
 </body>
 </html>

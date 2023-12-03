@@ -78,13 +78,9 @@
             echo "<p>Error fetching employees: " . mysqli_error($con) . "</p>";
         } else {
             echo "<p><strong>Showing " . mysqli_num_rows($result) . " entries</strong></p>";
-    //             	EmployeeID INT NOT NULL,
-	// StreetAddress VARCHAR(255),
-	// City VARCHAR(100),
-	// State VARCHAR(2),
-	// ZipCode VARCHAR(10),
-    // 	Email VARCHAR(255) NOT NULL UNIQUE,
-	// Phone VARCHAR(10) NOT NULL UNIQUE,
+            ?>
+            <div class="table-responsive">
+            <?php
             echo '<table>
                     <thead>
                         <tr>
@@ -106,7 +102,9 @@
                         </tr>
                     </thead>
                     <tbody>';
-
+                    ?>
+        </div>
+            <?php
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>
                         <td>" . $row["EmployeeID"]. "</td>

@@ -41,7 +41,7 @@ VALUES
       }
 }
       ?>
-    <div class="payroll-container">
+    <div class="container">
         <h2>Payroll</h2>
         <table class="payroll-table">
             <thead>
