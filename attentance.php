@@ -9,12 +9,11 @@
     <link rel="stylesheet" type="text/css" href="employee_form.css">
     <link rel="stylesheet" type="text/css" href="attentancee.css">
     <link rel="stylesheet" type="text/css" href="navbar.css">
-
     <title>Timesheet</title>
 </head>
 
 <body>
-    <?php 
+    <?php
     include 'navbar.php';
     include("sqlconnection.php");
 
@@ -32,7 +31,7 @@
         $sqlEndDatetime = date("Y-m-d H:i:s", strtotime($EndTime));
 
         $insert_query_ded = "INSERT INTO Timesheet (EmployeeID, StartTime, EndTime, TotalHoursWorked, OvertimeHours) VALUES (1, '$sqlStartDatetime', '$sqlEndDatetime', $TotalHour, $OvertimeHours)";
-        
+
         $insert_result_ded = mysqli_query($con, $insert_query_ded);
 
         if ($insert_result_ded) {
