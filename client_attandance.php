@@ -30,10 +30,6 @@
       $sqlStartDatetime = date("Y-m-d H:i:s", strtotime($StartTime));
       $sqlEndDatetime = date("Y-m-d H:i:s", strtotime($EndTime));
 
-    //   echo "$PayrollDateTime";
-    //   echo "$PayrollDate";
-    //   $DeductionPer = $DeductionAmount / 100;
-
       $insert_query_ded = "INSERT INTO Timesheet
 	(EmployeeID, StartTime, EndTime, TotalHoursWorked, OvertimeHours)
 VALUES
@@ -51,12 +47,6 @@ VALUES
   <div class="container">
     <h2>TimeSheet</h2>
 
-    <!-- add functionality -->
-    <!-- <input type="text" class="textbox" placeholder="Search by employee number or name"> -->
-
-    <!-- count using PHP -->
-    <!-- <p><strong>Showing 0 entries</strong></p> -->
-
     <table>
       <thead>
         <tr>
@@ -70,18 +60,7 @@ VALUES
         </tr>
       </thead>
       <tbody>
-        <!-- PHP data -->
-        <!-- <tr>
-          <td>EMP001</td>
-          <td>9:00</td>
-          <td>10:10</td>
-          <td>1.1 hours</td>
-          <td>0</td>
-          <td>
-            <button class="btn btn-primary">Edit</button>
-            <button class="btn btn-danger">Delete</button>
-          </td>
-        </tr> -->
+  
         <?php
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
@@ -101,14 +80,7 @@ VALUES
   <div id="employeeForm" class="signin-container">
         <h2>Add New Attendance</h2>
         <form action="client_attandance.php" method="POST">
-          <!-- 
-            EmployeeID INT NOT NULL,
-	StartTime TIMESTAMP,
-	EndTime TIMESTAMP,
-	TotalHoursWorked DECIMAL(10, 2),
-	OvertimeHours DECIMAL(10, 2),
 
-           -->
             <label for="EmployeeID">Employee ID:</label>
             <input type="number" name="EmployeeID" required>
             

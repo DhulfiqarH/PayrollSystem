@@ -68,7 +68,6 @@ WHERE Employees.EmployeeID = 1";
   <div class="container">
     <h2>Deductions</h2>
 
-    <!-- add functionality -->
     <table>
       <thead>
         <tr>
@@ -79,16 +78,7 @@ WHERE Employees.EmployeeID = 1";
         </tr>
       </thead>
       <tbody>
-        <!-- PHP data -->
-        <!-- <tr>
-          <td>EMP001</td>
-          <td>Tax</td>
-          <td>$120</td>
-          <td>
-            <button class="btn btn-primary">Edit</button>
-            <button class="btn btn-danger">Delete</button>
-          </td>
-        </tr> -->
+       
          <?php
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
@@ -118,7 +108,6 @@ WHERE Employees.EmployeeID = 1";
         </form>
     </div>
 
-    <!-- add functionality -->
         <h2>Benefits</h2>
 
     <table>

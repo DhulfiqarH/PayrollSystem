@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
 
     <title>Employee Records</title>
-   <link rel="stylesheet" type="text/css" href="employee_form.css">
-  <link rel="stylesheet" type="text/css" href="employeee.css">
-  <link rel="stylesheet" type="text/css" href="navbar.css">
+    <link rel="stylesheet" type="text/css" href="employee_form.css">
+    <link rel="stylesheet" type="text/css" href="employeee.css">
+    <link rel="stylesheet" type="text/css" href="navbar.css">
 
 </head>
+
 <body>
     <?php include 'navbar.php'; ?>
     <?php
@@ -55,7 +58,8 @@
                 $searchValue = htmlspecialchars($_GET['search']);
             }
             ?>
-            <input type="text" name="search" class="form-control mb-3" placeholder="Search by employee number or name" value="<?php echo $searchValue; ?>">
+            <input type="text" name="search" class="form-control mb-3" placeholder="Search by employee number or name"
+                value="<?php echo $searchValue; ?>">
             <input type="submit" value="Search" class="btn btn-primary">
         </form>
 
@@ -78,13 +82,9 @@
             echo "<p>Error fetching employees: " . mysqli_error($con) . "</p>";
         } else {
             echo "<p><strong>Showing " . mysqli_num_rows($result) . " entries</strong></p>";
-    //             	EmployeeID INT NOT NULL,
-	// StreetAddress VARCHAR(255),
-	// City VARCHAR(100),
-	// State VARCHAR(2),
-	// ZipCode VARCHAR(10),
-    // 	Email VARCHAR(255) NOT NULL UNIQUE,
-	// Phone VARCHAR(10) NOT NULL UNIQUE,
+            ?>
+        <div class="table-responsive">
+            <?php
             echo '<table>
                     <thead>
                         <tr>
@@ -93,20 +93,25 @@
                             <th>Last Name</th>
                             <th>Position</th>
                             <th>Department</th>
-                            <th>Hire Date</th>
                             <th>Role</th>
+                            <th>Hire Date</th>
+                            <th>Hourly Rate</th>
+                            <th>Benefits</th>
+                            <th>Deductions</th>
+                            <th>Email</th>
+                            <th>Phone</th>
                             <th>StreetAddress</th>
                             <th>City</th>
                             <th>State</th>
                             <th>ZipCode</th>
-                            <th>Email</th>
-                            <th>Phone</th>
                             <th>UserName</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>';
-
+                    ?>
+        </div>
+        <?php
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>
                         <td>" . $row["EmployeeID"]. "</td>
@@ -114,21 +119,21 @@
                         <td>" . $row["LastName"]. "</td>
                         <td>" . $row["PositionTitle"]. "</td>
                         <td>" . $row["DepartmentName"]. "</td>
-                        <td>" . $row["HireDate"]. "</td>
                         <td>" . $row["Role"]. "</td>
+                        <td>" . $row["HireDate"]. "</td>
+                        <td>" . $row["Hourly_Rate"]. "</td>
+                        <td>" . $row["Benefits"]. "</td>
+                        <td>" . $row["Deductions"]. "</td>
+                        <td>" . $row["Email"]. "</td>
+                        <td>" . $row["Phone"]. "</td>
                         <td>" . $row["StreetAddress"]. "</td>
                         <td>" . $row["City"]. "</td>
                         <td>" . $row["State"]. "</td>
                         <td>" . $row["ZipCode"]. "</td>
-                        <td>" . $row["Email"]. "</td>
-                        <td>" . $row["Phone"]. "</td>
                         <td>" . $row["UserName"]. "</td>
                         <td>
-                            <button class='btn btn-primary'>Edit</button>
-                            <form method='POST' action=''>
-                                <input type='hidden' name='employeeIdToDelete' value='" . $row["EmployeeID"] . "'>
-                                <button class='btn btn-danger' type='submit' name='deleteEmployee'>Delete</button>
-                            </form>
+                           <button class='btn btn-primary'>Edit</button>
+                            <button class='btn btn-danger'>Delete</button>
                         </td>
                     </tr>";
             }
@@ -176,30 +181,25 @@
         <form action="employee.php" method="POST">
             <label for="FirstName">First Name:</label>
             <input type="text" name="FirstName" required>
-            
+
             <label for="LastName">Last Name:</label>
             <input type="text" name="LastName" required>
-            
+
             <label for="PositionID">PositionID:</label>
             <input type="number" name="PositionID" required>
-            
+
             <label for="DepartmentID">DepartmentID:</label>
             <input type="number" name="DepartmentID" required>
-            
+
             <label for="Role">Role:</label>
             <input type="number" name="Role" min="0" max="1" required>
-            
+
             <button class="btn-sign btn btn-primary" type="submit" name="reg_user">Add</button>
             <button class="btn-sign btn btn-danger" type="reset">Cancel</button>
         </form>
     </div>
 
-    <!-- javascript -->
-    <script>
-        // function deleteLink(employeeId) {
-        //   location.href = "";
-        //   // console.log("Employee id: " + employeeId);
-        // }
-    </script>
+
 </body>
+
 </html>
