@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php 
+    <?php
     include 'navbar.php';
     include("sqlconnection.php");
 

@@ -25,8 +25,8 @@
     <!-- <div class="name">
           <p class="name-cool">Hello Admin</p>
     </div> -->
-    <div class="name">
-        <p class="name-cool animated-button">Hello Admin</p>
+    <div class="helloname">
+        <p class="cool-name">Hello Admin</p>
     </div>
 
 </body>
