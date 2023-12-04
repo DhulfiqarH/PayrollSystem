@@ -100,7 +100,7 @@ if ($login_success) {
 
             <button type="submit" class="cool-button animated-button" name="signin">Log In</button>
         </form>
-        <p>----  Don't have an account?  <a href="signup.php" class="cool-button animated-button"> Sign Up </a></p>
+        <p>Don't have account, register now? <a href="signup.php"> Sign Up </a>
         <h2>Demo:</h2>
         <p>Admin: Username: jackson101, Password: Jackson@101</p>
         <p>Client: Username: thomas107, Password: Thomas@107 </p>
