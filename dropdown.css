@@ -121,7 +121,7 @@ header {
   color: black;
   z-index: 1002; /* above video */
 }
-.container {
+.container-drop {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -130,19 +130,19 @@ header {
 .left-section {
   flex: 1;
   max-width: 500px;
-  padding-left: 70px;
+  padding-left: 100px;
 }
 
 .right-section {
   flex: 1;
   max-width: 500px;
-  padding-right: 70px;
+  padding-right: 100px;
 }
 
 .section {
   margin-bottom: 20px;
 }
-h2 {
+h4 {
   font-size: 28px;
   color: #3498db;
   margin-bottom: 10px;
@@ -154,16 +154,21 @@ p {
   line-height: 1.3;
 }
 
-.left-section h2 {
+.left-section h4 {
   font-style: italic;
   font-size: 32px;
   color: #3498db;
 }
 
 
-.right-section h2 {
+.right-section h4 {
   font-size: 28px;
-  color: #3498db;
+  color: black;
+  font-style: bold;
+  font-style: bold;
+  font-family: Trebuchet ,sans-serif;
+  font-weight: 700;
+  line-height: 30px;
 }
 .big-section{
   margin-top: 120px;
@@ -182,19 +187,23 @@ p {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.big-section h1 {
+.big-section h3 {
     font-size: 24px;
-    color: #3498db;
+    color: black;
     margin-bottom: 20px;
     text-align: center;
     font-style: italic;
 }
 
-.small-section h2 {
+.small-section h4 {
     font-size: 20px;
-    color: #3498db;
+    color: black;
     margin-bottom: 10px;
     text-align: left;
+    font-style: bold;
+    font-family: Trebuchet ,sans-serif;
+    font-weight: 700;
+    line-height: 30px;
 }
 .small-section p{
   text-align: left;
@@ -209,4 +218,14 @@ p {
   .right-section {
     max-width: 100%;
   }
+}
+#group{
+  text-align: center;
+  max-width: 70%;
+  padding-left: 100px;
+}
+#group img{
+  max-width: 70%;
+  height: auto;
+  max-height: 200px;
 }
