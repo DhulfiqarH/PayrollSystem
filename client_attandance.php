@@ -60,7 +60,7 @@ VALUES
                     <th>EndTime</th>
                     <th>Total Hours Worked</th>
                     <th>OverTime</th>
-                    <th>Action</th>
+                    <!-- <th>Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -69,10 +69,7 @@ VALUES
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr><td>" . $row["TimesheetID"]. "</td><td>" . $row["EmployeeID"]. "</td><td>". $row["StartTime"]. " </td><td>" . $row["EndTime"]. "</td><td>" . $row["TotalHoursWorked"]. " </td><td>".
-        $row["OvertimeHours"]. " </td><td>" .
-        "<button class='btn btn-primary'>Edit</button> " .
-        "<button class='btn btn-danger'>Delete</button>"  .
-        "</td></tr>";
+        $row["OvertimeHours"]. " </td></tr>";
     }
 } else {
     echo "0 results";
