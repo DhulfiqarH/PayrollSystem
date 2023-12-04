@@ -21,62 +21,63 @@
     <source src="images/page.MP4" type="video/mp4">
 </video>
 <div class="company-info">
-    <h1>Company Name</h1>
+    <h3>Company Name</h3>
     <p>Some information about your company goes here.</p>
 </div>
-<div class="container">
+<div class="container-drop">
     <div class="left-section">
         <div class="section">
-            <h2>We set people free to do great work.</h2>
+            <h4>We set people free to do great work.</h4>
             <p>Avalance Innovation software collects and organizes all the information you gather throughout the employee life cycle,
               and then helps you use it to achieve great things. Whether you’re hiring, onboarding, preparing compensation, or building culture, Avalance Innovation gives you the tools and insights to focus on your most important asset—your people.</p>
         </div>
+        <div><img id="group" src="images/group.png" alt="group"></div>
     </div>
 
     <div class="right-section">
         <div class="section">
-            <h2>Built for SMBs</h2>
+            <h4>Built for SMBs</h4>
             <p>Starting small makes everything easier when it comes to building strong cultures and creating great places to work.
               That’s why we’re obsessed with crafting solutions for small and medium-sized businesses.</p>
         </div>
 
         <div class="section">
-            <h2>Easy to Set Up, Easy to Use</h2>
+            <h4>Easy to Set Up, Easy to Use</h4>
             <p>We built Avalance Innovation to be intuitive, clear, and easy to use. People get it immediately, they love using it,
               and they’ll love you for choosing our software.</p>
         </div>
 
         <div class="section">
-            <h2>Top-Rated Customer Service</h2>
+            <h4>Top-Rated Customer Service</h4>
             <p>No one else puts the customer experience at the heart of everything quite like we do. We’re always listening to gain a
               better understanding of how we can help you succeed.</p>
         </div>
     </div>
 </div>
 <div class="big-section">
-    <h1>People Data and Analytics</h1>
+    <h3>People Data and Analytics</h3>
     <div class="sectionsg">
     <div class="small-section">
-        <h2>Employee Records</h2>
+        <h4>Employee Records</h4>
         <p>Manage all of your sensitive people data in one organized, secure database. You’ll never need
           cumbersome spreadsheets or cluttered paper files again.</p>
     </div>
 
     <div class="small-section">
-        <h2>Mobile App</h2>
+        <h4>Mobile App</h4>
         <p>Modern HR pros need software that can keep up with their busy schedules. Our free mobile app gives everyone in
           your organization easy access to essential BambooHR functions at all times.</p>
     </div>
 
     <div class="small-section">
-        <h2>Workflows and Approvals</h2>
+        <h4>Workflows and Approvals</h4>
         <p>Bottlenecks and slow approval processes prevent you from making important decisions promptly. BambooHR comes
           with pre-built workflows so you can smooth out operations and keep work on track.</p>
     </div>
 
     <div class="small-section">
-        <h2>Reporting and Analytics</h2>
-        <p>BambooHR reporting and analytics makes reporting effortless, so you can create and share reports quickly.. And with the
+        <h4>Reporting and Analytics</h4>
+        <p>BambooHR reporting and analytics makes reporting effortless, so you can create and share reports quickly. And with the
           information your reports provide, you can make strategic decisions with confidence.</p>
     </div>
   </div>
