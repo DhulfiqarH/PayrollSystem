@@ -76,7 +76,7 @@
 
     <div class="small-section">
         <h2>Reporting and Analytics</h2>
-        <p>BambooHR reporting and analytics makes reporting effortless, so you can create and share reports quickly. And with the
+        <p>BambooHR reporting and analytics makes reporting effortless, so you can create and share reports quickly.. And with the
           information your reports provide, you can make strategic decisions with confidence.</p>
     </div>
   </div>
