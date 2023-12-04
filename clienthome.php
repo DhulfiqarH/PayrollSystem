@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <?php 
-    include 'cnavbar.php'; ?>
-
+    <?php
+    include 'cnavbar.php';
+    ?>
     <div class="container">
         <div class="graph-container">
             <h2>Income Overview</h2>
