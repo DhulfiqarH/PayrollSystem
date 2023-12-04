@@ -12,8 +12,6 @@ body {
   z-index: 1000;
 }
 
-
-
 .cool-button {
   color: black;
   border: none;
@@ -100,6 +98,18 @@ header {
   margin-bottom: 10px;
 }
 
+
+
+header {
+  padding: 10px;
+  background-color: #f0f0f0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001; 
+}
+
 #logo {
   max-width: 250px;
   height: auto;
@@ -154,52 +164,51 @@ p {
   color: #3498db;
 }
 
-
 .right-section h4 {
   font-size: 28px;
   color: black;
   font-style: bold;
   font-style: bold;
-  font-family: Trebuchet ,sans-serif;
+  font-family: Trebuchet, sans-serif;
   font-weight: 700;
   line-height: 30px;
 }
-.big-section{
+.big-section {
   margin-top: 120px;
 }
 .sectionsg {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
 }
 
 .small-section {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .big-section h3 {
-    font-size: 24px;
-    color: black;
-    margin-bottom: 20px;
-    text-align: center;
-    font-style: italic;
+  font-size: 24px;
+  color: black;
+  margin-bottom: 20px;
+  text-align: center;
+  font-style: italic;
 }
 
 .small-section h4 {
-    font-size: 20px;
-    color: black;
-    margin-bottom: 10px;
-    text-align: left;
-    font-style: bold;
-    font-family: Trebuchet ,sans-serif;
-    font-weight: 700;
-    line-height: 30px;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 10px;
+  text-align: left;
+  font-style: bold;
+  font-family: Trebuchet, sans-serif;
+  font-weight: 700;
+  line-height: 30px;
 }
-.small-section p{
+.small-section p {
   text-align: left;
 }
 
@@ -213,12 +222,12 @@ p {
     max-width: 100%;
   }
 }
-#group{
+#group {
   text-align: center;
   max-width: 70%;
   padding-left: 100px;
 }
-#group img{
+#group img {
   max-width: 70%;
   height: auto;
   max-height: 200px;
