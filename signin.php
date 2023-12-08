@@ -39,7 +39,7 @@
 
                 $get_EmpID = "SELECT Employees.EmployeeID FROM Employees JOIN UserLogin ON Employees.EmployeeID = UserLogin.EmployeeID WHERE UserLogin.UserName = '$UserName'";
                 $get_empid_result = mysqli_query($con, $get_EmpID);
-                
+
                 $row = mysqli_fetch_assoc($get_empid_result);
                 // $emp_id_user = $row['EmployeeID'];
                 echo $row["EmployeeID"];
