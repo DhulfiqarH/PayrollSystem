@@ -36,38 +36,38 @@ WHERE Employees.EmployeeID = 1";
     $result_benefit = mysqli_query($con, $sql_benefit);
     ?>
     <?php
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["deductionSubmit"])) {
-      // Deduction form submission
-      $DeductionName = mysqli_real_escape_string($con, $_POST["DeductionName"]);
-      $DeductionAmount = mysqli_real_escape_string($con, $_POST["DeductionAmount"]);
-      $DeductionPer = $DeductionAmount / 100;
+//   if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     if (isset($_POST["deductionSubmit"])) {
+//       // Deduction form submission
+//       $DeductionName = mysqli_real_escape_string($con, $_POST["DeductionName"]);
+//       $DeductionAmount = mysqli_real_escape_string($con, $_POST["DeductionAmount"]);
+//       $DeductionPer = $DeductionAmount / 100;
 
-      $insert_query_ded = "INSERT INTO Deductions (DeductionName, Amount) 
-      VALUES ('$DeductionName', '$DeductionPer')";
-      $insert_result_ded = mysqli_query($con, $insert_query_ded);
+//       $insert_query_ded = "INSERT INTO Deductions (DeductionName, Amount) 
+//       VALUES ('$DeductionName', '$DeductionPer')";
+//       $insert_result_ded = mysqli_query($con, $insert_query_ded);
 
-      if ($insert_result_ded) {
-        echo "<div class='center'><h2>Deduction successfully Added</h2></div>";
-      } else {
-        echo "<div class='center'><h2>Failed, Try Again</h2><br>Error: " . mysqli_error($con) . "</div>";
-      }
-    } elseif (isset($_POST["benefitSubmit"])) {
-      // Benefit form submission
-      $BenefitName = mysqli_real_escape_string($con, $_POST["BenefitName"]);
-      $BenefitDesciption = mysqli_real_escape_string($con, $_POST["BenefitDescription"]);
+//       if ($insert_result_ded) {
+//         echo "<div class='center'><h2>Deduction successfully Added</h2></div>";
+//       } else {
+//         echo "<div class='center'><h2>Failed, Try Again</h2><br>Error: " . mysqli_error($con) . "</div>";
+//       }
+//     } elseif (isset($_POST["benefitSubmit"])) {
+//       // Benefit form submission
+//       $BenefitName = mysqli_real_escape_string($con, $_POST["BenefitName"]);
+//       $BenefitDesciption = mysqli_real_escape_string($con, $_POST["BenefitDescription"]);
 
-      $insert_query = "INSERT INTO Benefits (BenefitName, BenefitDesciption) 
-      VALUES ('$BenefitName', '$BenefitDesciption')";
-      $insert_result = mysqli_query($con, $insert_query);
+//       $insert_query = "INSERT INTO Benefits (BenefitName, BenefitDesciption) 
+//       VALUES ('$BenefitName', '$BenefitDesciption')";
+//       $insert_result = mysqli_query($con, $insert_query);
 
-      if ($insert_result) {
-        echo "<div class='center'><h2>Benefit successfully Added</h2></div>";
-      } else {
-        echo "<div class='center'><h2>Failed, Try Again</h2><br>Error: " . mysqli_error($con) . "</div>";
-      }
-    }
-  }
+//       if ($insert_result) {
+//         echo "<div class='center'><h2>Benefit successfully Added</h2></div>";
+//       } else {
+//         echo "<div class='center'><h2>Failed, Try Again</h2><br>Error: " . mysqli_error($con) . "</div>";
+//       }
+//     }
+//   }
   ?>
     <div class="container">
         <h2>Deductions</h2>
@@ -78,7 +78,7 @@ WHERE Employees.EmployeeID = 1";
                     <th>Deduction ID</th>
                     <th>Deduction Name</th>
                     <th>Amount</th>
-                    <th>Action</th>
+                    <!-- <th>Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -86,10 +86,7 @@ WHERE Employees.EmployeeID = 1";
                 <?php
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>" . $row["DeductionID"]. "</td><td>" . $row["DeductionName"]. " </td><td>" . $row["Amount"]. " </td><td>" .
-        "<button class='btn btn-primary'>Edit</button> " .
-        "<button class='btn btn-danger'>Delete</button>"  .
-        "</td></tr>";
+        echo "<tr><td>" . $row["DeductionID"]. "</td><td>" . $row["DeductionName"]. " </td><td>" . $row["Amount"]. " </td></tr>";
     }
 } else {
     echo "0 results";
@@ -98,7 +95,7 @@ WHERE Employees.EmployeeID = 1";
 
             </tbody>
         </table>
-        <div id="employeeForm" class="signin-container">
+        <!-- <div id="employeeForm" class="signin-container">
             <h2>Add New Deduction</h2>
             <form action="client_deductions.php" method="POST">
                 <label for="DeductionName">Deduction Name:</label>
@@ -110,7 +107,7 @@ WHERE Employees.EmployeeID = 1";
                 <button class="btn-sign btn btn-primary" type="submit" name="deductionSubmit">Add</button>
                 <button class="btn-sign btn btn-danger" type="reset" name="deductionCancel">Cancel</button>
             </form>
-        </div>
+        </div> -->
 
         <h2>Benefits</h2>
 
@@ -120,7 +117,7 @@ WHERE Employees.EmployeeID = 1";
                     <th>Benefit ID</th>
                     <th>Benefit Name</th>
                     <th>Benefit Description</th>
-                    <th>Action</th>
+                    <!-- <th>Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -129,10 +126,7 @@ WHERE Employees.EmployeeID = 1";
                 <?php
         if (mysqli_num_rows($result_benefit) > 0) {
           while ($row = mysqli_fetch_assoc($result_benefit)) {
-        echo "<tr><td>" . $row["BenefitID"]. "</td><td>" . $row["BenefitName"]. " </td><td>" . $row["BenefitDesciption"]. " </td><td>" .
-        "<button class='btn btn-primary'>Edit</button> " .
-        "<button class='btn btn-danger'>Delete</button>"  .
-        "</td></tr>";
+        echo "<tr><td>" . $row["BenefitID"]. "</td><td>" . $row["BenefitName"]. " </td><td>" . $row["BenefitDesciption"]. " </td></tr>";
     }
 } else {
     echo "0 results";
@@ -142,7 +136,7 @@ WHERE Employees.EmployeeID = 1";
             </tbody>
         </table>
     </div>
-    <div id="employeeForm" class="signin-container">
+    <!-- <div id="employeeForm" class="signin-container">
         <h2>Add New Benefit</h2>
         <form action="client_deductions.php" method="POST">
             <label for="BenefitName">Benefit Name:</label>
@@ -154,7 +148,7 @@ WHERE Employees.EmployeeID = 1";
             <button class="btn-sign btn btn-primary" type="submit" name="benefitSubmit">Add</button>
             <button class="btn-sign btn btn-danger" type="reset" name="benefitCancel">Cancel</button>
         </form>
-    </div>
+    </div> -->
 
 </body>
 
