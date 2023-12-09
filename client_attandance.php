@@ -167,10 +167,12 @@
       ?>
     <div class="container">
         <h2>TimeSheet</h2>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewClockIn">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewClockIn"
+            style="margin-right: 10px;">
             Clock-In
         </button>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewClockOut">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewClockOut"
+            style="margin-right: 10px;">
             Clock-Out
         </button>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewOvertime">
