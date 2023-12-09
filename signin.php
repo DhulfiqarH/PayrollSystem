@@ -42,7 +42,10 @@
 
                 $row = mysqli_fetch_assoc($get_empid_result);
                 // $emp_id_user = $row['EmployeeID'];
-                echo $row["EmployeeID"];
+                $employeeIdSession = $row["EmployeeID"]; // Fetch the employee ID
+
+                // Store the employee ID in session
+                $_SESSION['employee_id'] = $employeeIdSession;
 
                 while ($row = mysqli_fetch_assoc($get_name_result)) {
 
