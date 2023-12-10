@@ -37,7 +37,7 @@
 
     ?>
     <div class="Main-buttons">
-        <!-- <a href="admindash.php" class="cool-button animated-button">Home</a>-->
+        <!-- <a href="admindash.php" class="cool-button animated-button">Home</a> -->
         <a href="attentance.php" class="cool-button animated-button">Attendance</a>
         <a href="payroll.php" class="cool-button animated-button">Payroll</a>
         <a href="employee.php" class="cool-button animated-button">Employee List</a>
