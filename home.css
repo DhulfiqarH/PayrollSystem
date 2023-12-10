@@ -1,54 +1,62 @@
+body {
+    background-color: #white;
+    font-family: Arial, sans-serif;
+}
+
 .container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.graph-container,
+.info-container {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 48%; /* Adjust the width based on your design */
+    box-sizing: border-box;
 }
 
 .graph-container {
-  flex: 1;
-}
-
-.graph {
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  /*styles for  income graph container */
+    background-color: #fff;
+    padding: 20px;
 }
 
 .info-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    background-color: #fff;
+    padding: 20px;
 }
 
 .info-box {
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  flex: 1;
+    margin-bottom: 20px;
 }
-
-.info-box:hover {
-  transform: scale(1.05); /* Increase the size on hover */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
 
 .animated-box {
-  animation: fadeIn 1s ease-in-out;
+    list-style-type: none;
+    padding: 10px;
+    background-color: #e0f7fa;
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(-10px); }
-  100% { opacity: 1; transform: translateY(0); }
+.animated-box:not(:first-child) {
+    margin-left: 0px;
+}
+
+.upcoming-payday p,
+.payment-account p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .graph-container,
+    .info-container {
+        width: 100%;
+    }
 }
