@@ -20,7 +20,7 @@
 
 <body>
     <?php 
-        session_start(); // Start the session
+        // session_start(); // Start the session
 
     include 'cnavbar.php';
   include("sqlconnection.php");

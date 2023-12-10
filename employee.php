@@ -184,7 +184,7 @@ $result_pos = mysqli_query($con, $sql_pos);
                                     "style='margin-right: 10px;'>View</button>"
                                      .
                         "<button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteEmpIDForm' " .
-                                    "onclick='deleteEmployee(this)' data-empdel-id='" . $row["Employee"] . "'>Delete</button>
+                                    "onclick='deleteEmployee(this)' data-empdel-id='" . $row["EmployeeID"] . "'>Delete</button>
                         </td>
                     </tr>";
             }
@@ -513,11 +513,11 @@ $result_pos = mysqli_query($con, $sql_pos);
                                 echo "<option value=''>No departments available</option>";
                             }
                             ?>
-                            </select>
+                        </select>
 
-                            <label for="positionChosen">Choose a Position:</label>
-                            <select name="positionaddpos" id="positionChosen" required>
-                                <?php
+                        <label for="positionChosen">Choose a Position:</label>
+                        <select name="positionaddpos" id="positionChosen" required>
+                            <?php
                             if (mysqli_num_rows($result_pos) > 0) {
                                 while ($row = mysqli_fetch_assoc($result_pos)) {
                                     echo "<option value='" . $row["PositionID"] . "'>" . $row["PositionTitle"] . "</option>";

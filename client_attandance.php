@@ -20,7 +20,7 @@
 
 <body>
     <?php 
-    session_start(); // Start the session
+    // session_start(); // Start the session
 
     include 'cnavbar.php';
   include("sqlconnection.php");
@@ -141,28 +141,7 @@
 
     }
 
-      // Deduction form submission
-//       $EmployeeID = intval($_POST["EmployeeID"]);
-//       $StartTime = mysqli_real_escape_string($con, $_POST["StartTime"]);
-//       $EndTime = mysqli_real_escape_string($con, $_POST["EndTime"]);
-//       $OvertimeHours = intval($_POST["OvertimeHours"]);
-//       $TotalHour = intval($_POST["TotalHour"]);
 
-//       $sqlStartDatetime = date("Y-m-d H:i:s", strtotime($StartTime));
-//       $sqlEndDatetime = date("Y-m-d H:i:s", strtotime($EndTime));
-
-//       $insert_query_ded = "INSERT INTO Timesheet
-// 	(EmployeeID, StartTime, EndTime, TotalHoursWorked, OvertimeHours)
-// VALUES
-// 	($EmployeeID, '$sqlStartDatetime', '$sqlEndDatetime', $TotalHour, $OvertimeHours)";
-
-//       $insert_result_ded = mysqli_query($con, $insert_query_ded);
-
-//       if ($insert_result_ded) {
-//         echo "<div class='center'><h2>Attendance successfully Added</h2></div>";
-//       } else {
-//         echo "<div class='center'><h2>Failed, Try Again</h2><br>Error: " . mysqli_error($con) . "</div>";
-//       }
 }
       ?>
     <div class="container">
@@ -222,31 +201,7 @@
             </tbody>
         </table>
     </div>
-    <!-- <div id="employeeForm" class="signin-container">
-        <h2>Add New Attendance</h2>
-        <form action="client_attandance.php" method="POST">
 
-            <label for="EmployeeID">Employee ID:</label>
-            <input type="number" name="EmployeeID" required>
-
-            <label for="StartTime">Clock-In Time:</label>
-            <input type="datetime-local" name="StartTime" required>
-
-            <label for="EndTime">Clock-Out Time:</label>
-            <input type="datetime-local" name="EndTime" required>
-
-            <label for="TotalHour">Total Hour:</label>
-            <input type="number" name="TotalHour" required>
-
-            <label for="OvertimeHours">Over-time Hours:</label>
-            <input type="number" name="OvertimeHours" required>
-
-
-
-            <button class="btn-sign btn btn-primary" type="submit" name="timesheetbtn">Add</button>
-            <button class="btn-sign btn btn-danger" type="reset">Cancel</button>
-        </form>
-    </div> -->
 
     <!-- Timesheet Forms -->
     <!-- Form To Add new clock in -->
@@ -332,25 +287,7 @@
         </div>
     </div>
 
-    <!-- <script>
-    function editTimesheet(buttonElement) {
-        // Get Timesheet ID 
-        var timesheetIdEdit = buttonElement.getAttribute('data-edittimesheet-id');
-        var empIdEdit = buttonElement.getAttribute('data-editemptime-id');
 
-        // Set the Timesheet ID in the form
-        document.querySelector('#editEmpTimesheet input[name="TimesheetID"]').value = timesheetIdEdit;
-        document.querySelector('#editEmpTimesheet input[name="EmployeeID"]').value = empIdEdit;
-    }
-
-    function deleteTimesheet(buttonElement) {
-        // Get Timesheet ID 
-        var timesheetIdDel = buttonElement.getAttribute('data-deltimesheet-id');
-
-        // Set the Timesheet ID in the form
-        document.querySelector('#deleteEmpTimesheet input[name="TimesheetID"]').value = timesheetIdDel;
-    }
-    </script> -->
 
 </body>
 

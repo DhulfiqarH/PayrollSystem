@@ -20,7 +20,7 @@
 
 <body>
     <?php 
-        session_start(); // Start the session
+        // session_start(); // Start the session
 
     include 'cnavbar.php';
   include("sqlconnection.php");
@@ -111,25 +111,7 @@ VALUES
             </tbody>
         </table>
     </div>
-    <!-- <div id="employeeForm" class="signin-container">
-        <h2>Add New Payroll</h2>
-        <form action="client_payroll.php" method="POST">
 
-            <label for="EmployeeID">Employee ID:</label>
-            <input type="number" name="EmployeeID" required>
-
-            <label for="PayrollStartDate">Period Start Date:</label>
-            <input type="date" name="PayrollStartDate" required>
-
-            <label for="PayrollEndDate">Period End Date:</label>
-            <input type="date" name="PayrollEndDate" required>
-
-            <button class="btn-sign btn btn-primary" type="submit" name="payrollSubmit">Add</button>
-            <button class="btn-sign btn btn-danger" type="reset" name="payrollCancel">Cancel</button>
-        </form>
-
-
-    </div> -->
     <!-- Form To add New Payroll -->
     <div class="modal fade" id="addNewPayroll" tabindex="-1" aria-labelledby="addPayrollLabel" aria-hidden="true">
         <div class="modal-dialog">
