@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <?php 
+    <?php
             session_start(); // Start the session
             include("sqlconnection.php");
 
@@ -19,7 +19,7 @@
     $employeeIdSession = $_SESSION['employee_id']; // Retrieve the employee ID from session
 
     // Use $employeeId in your SQL query to fetch specific timesheet
-    $sql = "SELECT * FROM Employees 
+    $sql = "SELECT * FROM Employees
  WHERE EmployeeID = $employeeIdSession";
     $result = mysqli_query($con, $sql);
 
@@ -29,15 +29,15 @@
         echo "<div class='center'><h2>Employee not found</h2></div>";
     }
 
-    
+
     } else {
         echo "<div class='center'><h2>Invalid Employee ID, Session Error</h2></div>";
-    
+
 }
 
     ?>
     <div class="Main-buttons">
-        <a href="admindash.php" class="cool-button animated-button">Home</a>
+        <!-- <a href="admindash.php" class="cool-button animated-button">Home</a>-->
         <a href="attentance.php" class="cool-button animated-button">Attendance</a>
         <a href="payroll.php" class="cool-button animated-button">Payroll</a>
         <a href="employee.php" class="cool-button animated-button">Employee List</a>
@@ -51,7 +51,7 @@
           <p class="name-cool">Hello Admin</p>
     </div> -->
     <div class="helloname">
-        <?php 
+        <?php
         if (isset($firstName)) {
         echo "<p class='cool-name'>Welcome Admin, " . $firstName . "</p>";
     } else {
