@@ -33,22 +33,22 @@
     $result_former = mysqli_query($con, $sql_former); 
 
 
-    $showAllEmployeeInfo = "SELECT * FROM Employees LEFT JOIN UserLogin ON Employees.EmployeeID = UserLogin.EmployeeID WHERE Employees.EmployeeID = 1";
+    $showAllEmployeeInfo = "SELECT * FROM Employees LEFT JOIN UserLogin ON Employees.EmployeeID = UserLogin.EmployeeID WHERE Employees.EmployeeID = 5";
                         $execShowAllEmpInfo = mysqli_query($con, $showAllEmployeeInfo);
 
-    $showAllEmployeeAddress = "SELECT * FROM Addresses LEFT JOIN Employees ON Addresses.EmployeeID = Employees.EmployeeID WHERE Employees.EmployeeID = 1";
+    $showAllEmployeeAddress = "SELECT * FROM Addresses LEFT JOIN Employees ON Addresses.EmployeeID = Employees.EmployeeID WHERE Employees.EmployeeID = 5";
                         $execShowAllEmpAddress = mysqli_query($con, $showAllEmployeeAddress);
     
-     $showAllEmployeeLogin = "SELECT * FROM UserLogin LEFT JOIN Employees ON UserLogin.EmployeeID = Employees.EmployeeID WHERE Employees.EmployeeID = 1";
+     $showAllEmployeeLogin = "SELECT * FROM UserLogin LEFT JOIN Employees ON UserLogin.EmployeeID = Employees.EmployeeID WHERE Employees.EmployeeID = 5";
                         $execShowAllEmpLogin = mysqli_query($con, $showAllEmployeeLogin);
 
-    $showAllEmployeeJob = "SELECT * FROM Positions LEFT JOIN Departments ON Positions.DepartmentID = Departments.DepartmentID LEFT JOIN Employees ON Employees.PositionID = Positions.PositionID WHERE Employees.EmployeeID = 1";
+    $showAllEmployeeJob = "SELECT * FROM Positions LEFT JOIN Departments ON Positions.DepartmentID = Departments.DepartmentID LEFT JOIN Employees ON Employees.PositionID = Positions.PositionID WHERE Employees.EmployeeID = 5";
                         $execShowAllEmpJob = mysqli_query($con, $showAllEmployeeJob);
     
-    $showAllEmployeeBenefit = "SELECT * FROM Benefits LEFT JOIN EmployeeBenefit ON Benefits.BenefitID = EmployeeBenefit.BenefitID LEFT JOIN Employees ON Employees.EmployeeID = EmployeeBenefit.EmployeeID WHERE Employees.EmployeeID = 1";
+    $showAllEmployeeBenefit = "SELECT * FROM Benefits LEFT JOIN EmployeeBenefit ON Benefits.BenefitID = EmployeeBenefit.BenefitID LEFT JOIN Employees ON Employees.EmployeeID = EmployeeBenefit.EmployeeID WHERE Employees.EmployeeID = 5";
                         $execShowAllEmpBenefit = mysqli_query($con, $showAllEmployeeBenefit);
 
-    $showAllEmployeeDeduction = "SELECT * FROM Deductions LEFT JOIN EmployeeDeduction ON Deductions.DeductionID = EmployeeDeduction.DeductionID LEFT JOIN Employees ON Employees.EmployeeID = EmployeeDeduction.EmployeeID WHERE Employees.EmployeeID = 1";
+    $showAllEmployeeDeduction = "SELECT * FROM Deductions LEFT JOIN EmployeeDeduction ON Deductions.DeductionID = EmployeeDeduction.DeductionID LEFT JOIN Employees ON Employees.EmployeeID = EmployeeDeduction.EmployeeID WHERE Employees.EmployeeID = 5";
                         $execShowAllEmpDeduction = mysqli_query($con, $showAllEmployeeDeduction);
 
     $sql_dept = "SELECT DepartmentID, DepartmentName FROM Departments";

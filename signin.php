@@ -10,9 +10,9 @@
 </head>
 
 <body>
-  <video id="video-background" autoplay muted loop>
-      <source src="images/page.MP4" type="video/mp4">
-  </video>
+    <video id="video-background" autoplay muted loop>
+        <source src="images/page.MP4" type="video/mp4">
+    </video>
     <?php
   session_start();
   	include("sqlconnection.php");
@@ -103,10 +103,10 @@ if ($login_success) {
         </form>
         <p>Don't have account, register now? <a href="signup.php"> Sign Up </a>
         <h2>Demo:</h2>
-        <p>Admin: Username: jackson101, Password: Jackson@101</p>
+        <p>Admin: Username: jones105, Password: Jones@105</p>
         <p>Client: Username: thomas107, Password: Thomas@107 </p>
     </div>
     <script src="scripts.js"></script>
 </body>
-</html>
 
+</html>
