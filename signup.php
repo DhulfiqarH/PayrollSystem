@@ -186,7 +186,6 @@
         <p>Already have an account? <a href="signin.php"> Sign In </a>
       </div>
     </div>
+    <script src="scripts.js"></script>
 </body>
-
-
 </html>
