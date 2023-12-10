@@ -115,6 +115,7 @@ if ($login_success) {
         <p>Admin: Username: jackson101, Password: Jackson@101</p>
         <p>Client: Username: thomas107, Password: Thomas@107 </p>
     </div>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
