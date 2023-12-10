@@ -54,12 +54,7 @@
     } else {
         echo "<p class='cool-name'>Welcome Client</p>";
     }
-
         ?>
-
     </div>
-
-
 </body>
-
 </html>
