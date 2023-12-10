@@ -1,5 +1,5 @@
 -- MYSQL Database for Online Payroll System
--- IS436 Project Group 7
+-- IS436 Project Group 7 - Nishan Subba
 
 -- Drop Database if already created
 DROP DATABASE IF EXISTS PayrollSystem;
@@ -839,3 +839,42 @@ VALUES
 	(1, TIMESTAMP '2023-10-23 08:00:00', TIMESTAMP '2023-10-23 18:00:00', 10, 4.00),
 	(1, TIMESTAMP '2023-10-24 08:00:00', TIMESTAMP '2023-10-24 18:00:00', 10, 4.00);
 
+DROP TRIGGER IF EXISTS Calculate_TotalHoursWorked_On_Update;
+DELIMITER //
+CREATE TRIGGER Calculate_TotalHoursWorked_On_Update
+BEFORE UPDATE ON Timesheet
+FOR EACH ROW
+BEGIN
+    IF NEW.EndTime IS NOT NULL AND OLD.StartTime IS NOT NULL THEN
+        SET NEW.TotalHoursWorked = TIMESTAMPDIFF(HOUR, OLD.StartTime, NEW.EndTime);
+    END IF;
+END //
+DELIMITER ;
+
+
+DROP TRIGGER IF EXISTS ReCalculate_TotalHoursWorked_On_Update;
+DELIMITER //
+CREATE TRIGGER ReCalculate_TotalHoursWorked_On_Update
+BEFORE UPDATE ON Timesheet
+FOR EACH ROW
+BEGIN
+    IF NEW.StartTime IS NOT NULL AND NEW.EndTime IS NOT NULL THEN
+        SET NEW.TotalHoursWorked = TIMESTAMPDIFF(HOUR, NEW.StartTime, NEW.EndTime);
+    END IF;
+END //
+DELIMITER ;
+
+
+
+
+DROP TRIGGER IF EXISTS Calculate_TotalHoursWorked_On_Insert;
+DELIMITER //
+CREATE TRIGGER Calculate_TotalHoursWorked_On_Insert
+BEFORE INSERT ON Timesheet
+FOR EACH ROW
+BEGIN
+    IF NEW.StartTime IS NOT NULL AND NEW.EndTime IS NOT NULL THEN
+        SET NEW.TotalHoursWorked = TIMESTAMPDIFF(HOUR, NEW.StartTime, NEW.EndTime);
+    END IF;
+END //
+DELIMITER ;
