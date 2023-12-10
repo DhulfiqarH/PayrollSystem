@@ -31,15 +31,41 @@
     ORDER BY pastempid ASC";
 
     $result_former = mysqli_query($con, $sql_former); 
+
+
+    $showAllEmployeeInfo = "SELECT * FROM Employees LEFT JOIN UserLogin ON Employees.EmployeeID = UserLogin.EmployeeID WHERE Employees.EmployeeID = 1";
+                        $execShowAllEmpInfo = mysqli_query($con, $showAllEmployeeInfo);
+
+    $showAllEmployeeAddress = "SELECT * FROM Addresses LEFT JOIN Employees ON Addresses.EmployeeID = Employees.EmployeeID WHERE Employees.EmployeeID = 1";
+                        $execShowAllEmpAddress = mysqli_query($con, $showAllEmployeeAddress);
+    
+     $showAllEmployeeLogin = "SELECT * FROM UserLogin LEFT JOIN Employees ON UserLogin.EmployeeID = Employees.EmployeeID WHERE Employees.EmployeeID = 1";
+                        $execShowAllEmpLogin = mysqli_query($con, $showAllEmployeeLogin);
+
+    $showAllEmployeeJob = "SELECT * FROM Positions LEFT JOIN Departments ON Positions.DepartmentID = Departments.DepartmentID LEFT JOIN Employees ON Employees.PositionID = Positions.PositionID WHERE Employees.EmployeeID = 1";
+                        $execShowAllEmpJob = mysqli_query($con, $showAllEmployeeJob);
+    
+    $showAllEmployeeBenefit = "SELECT * FROM Benefits LEFT JOIN EmployeeBenefit ON Benefits.BenefitID = EmployeeBenefit.BenefitID LEFT JOIN Employees ON Employees.EmployeeID = EmployeeBenefit.EmployeeID WHERE Employees.EmployeeID = 1";
+                        $execShowAllEmpBenefit = mysqli_query($con, $showAllEmployeeBenefit);
+
+    $showAllEmployeeDeduction = "SELECT * FROM Deductions LEFT JOIN EmployeeDeduction ON Deductions.DeductionID = EmployeeDeduction.DeductionID LEFT JOIN Employees ON Employees.EmployeeID = EmployeeDeduction.EmployeeID WHERE Employees.EmployeeID = 1";
+                        $execShowAllEmpDeduction = mysqli_query($con, $showAllEmployeeDeduction);
+
+    $sql_dept = "SELECT DepartmentID, DepartmentName FROM Departments";
+$result_dept = mysqli_query($con, $sql_dept);
+
+$sql_pos = "SELECT PositionID, PositionTitle FROM Positions";
+$result_pos = mysqli_query($con, $sql_pos);
     ?>
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $FirstName = mysqli_real_escape_string($con, $_POST["FirstName"]);
+        if (isset($_POST["newEmpAddSys"])) {
+            $FirstName = mysqli_real_escape_string($con, $_POST["FirstName"]);
         $LastName = mysqli_real_escape_string($con, $_POST["LastName"]);
-        $PositionID = intval($_POST["PositionID"]);
-        $DepartmentID = intval($_POST["DepartmentID"]);
-        $Role = intval($_POST["Role"]);
+        $PositionID = intval($_POST["positionaddpos"]);
+        $DepartmentID = intval($_POST["departmentaddemp"]);
+        $Role = intval($_POST["roleChosen"]);
 
         $insert_query = "INSERT INTO Employees (FirstName, LastName, PositionID, DepartmentID, HireDate, Role) 
         VALUES ('$FirstName', '$LastName', $PositionID, $DepartmentID, CURRENT_DATE(), $Role)";
@@ -47,14 +73,49 @@
 
         if ($insert_result) {
             echo "<div class='center'><h2>Employee successfully Added</h2></div>";
+            header("Location: employee.php"); // Redirect back to department.php
+                        exit();
         } else {
             echo "<div class='center'><h2>Failed, Try Again</h2><br>Error: " . mysqli_error($con) . "</div>";
         }
+
+        } elseif (isset($_POST["deleteEmpBtnID"])) {
+                $DeleteEmpID = intval($_POST["DeleteEmpID"]);
+
+                $checkEmpExistence_1 = "SELECT EmployeeID FROM Employees WHERE EmployeeID = $DeleteEmpID";
+                $empExistCheck = mysqli_query($con, $checkEmpExistence_1);
+
+                if ($empExistCheck && mysqli_num_rows($empExistCheck) > 0) {
+                    $delete_query = "DELETE FROM Employees WHERE EmployeeID = $DeleteEmpID";
+                    $delete_result = mysqli_query($con, $delete_query);
+
+                    if ($delete_result) {
+                        echo "<div class='center'><h2>Employee Deleted successfully</h2></div>";
+                        header("Location: employee.php"); // Redirect back to department.php
+                    exit();
+                    } else {
+                        echo "<div class='center'><h2>Failed to delete Employee, Try Again</h2><br>Error: " . mysqli_error($con) . "</div>";
+                    }
+                } else {
+                    echo "<div class='center'><h2>No Employee with that ID, Try Again</h2></div>";
+                }
+            }
+        
     }
     ?>
 
     <div class="container">
         <h2>Employees</h2>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnewEmployee"
+            style="margin-bottom: 20px; margin-right: 10px;">
+            Add New Employee
+        </button>
+
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#empRecordToView"
+            style="margin-bottom: 20px;">
+            View Employee Record
+        </button> -->
+
         <form method="get" action="">
             <?php
             $searchValue = '';
@@ -87,7 +148,7 @@
         } else {
             echo "<p><strong>Showing " . mysqli_num_rows($result) . " entries</strong></p>";
             ?>
-        <div class="table-responsive">
+        <div class="container">
             <?php
             echo '<table>
                     <thead>
@@ -96,18 +157,8 @@
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Position</th>
-                            <th>Department</th>
-                            <th>Role</th>
-                            <th>Hire Date</th>
-                            <th>Hourly Rate</th>
-                            <th>Benefits</th>
-                            <th>Deductions</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>StreetAddress</th>
-                            <th>City</th>
-                            <th>State</th>
-                            <th>ZipCode</th>
                             <th>UserName</th>
                             <th>Action</th>
                         </tr>
@@ -122,22 +173,18 @@
                         <td>" . $row["FirstName"]. "</td>
                         <td>" . $row["LastName"]. "</td>
                         <td>" . $row["PositionTitle"]. "</td>
-                        <td>" . $row["DepartmentName"]. "</td>
-                        <td>" . $row["Role"]. "</td>
-                        <td>" . $row["HireDate"]. "</td>
-                        <td>" . $row["Hourly_Rate"]. "</td>
-                        <td>" . $row["Benefits"]. "</td>
-                        <td>" . $row["Deductions"]. "</td>
+                        
                         <td>" . $row["Email"]. "</td>
                         <td>" . $row["Phone"]. "</td>
-                        <td>" . $row["StreetAddress"]. "</td>
-                        <td>" . $row["City"]. "</td>
-                        <td>" . $row["State"]. "</td>
-                        <td>" . $row["ZipCode"]. "</td>
+                        
                         <td>" . $row["UserName"]. "</td>
                         <td>
-                           <button class='btn btn-primary'>Edit</button>
-                            <button class='btn btn-danger'>Delete</button>
+                          <button class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#viewEmployeeRecord' " .
+                                    "data-emp-id='" . $row["EmployeeID"] . "' onclick='editEmployeeID(this)' " .
+                                    "style='margin-right: 10px;'>View</button>"
+                                     .
+                        "<button class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#deleteEmpIDForm' " .
+                                    "onclick='deleteEmployee(this)' data-empdel-id='" . $row["EmployeeID"] . "'>Delete</button>
                         </td>
                     </tr>";
             }
@@ -147,25 +194,228 @@
         ?>
     </div>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
-    </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="viewEmployeeRecord" tabindex="-1" aria-labelledby="empRecordLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="empRecordLabel">Employee Record for John Jackson</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <h3>Employee Info</h3>
+                    <!-- Body Table -->
+                    <!-- Employee Information -->
+                    <?php 
+
+                        ?>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php
+                                    if (mysqli_num_rows($execShowAllEmpInfo) > 0) {
+                                    while ($row = mysqli_fetch_assoc($execShowAllEmpInfo)) {
+                                    echo "<tr>
+                                    <td>" . $row["EmployeeID"]. "</td>
+                                    <td>" . $row["FirstName"]. " </td>
+                                    <td>" . $row["LastName"]  . "</td>
+                                    <td>" . $row["Email"]. "</td>
+                                    <td>" . $row["Phone"]. " </td>
+                                    
+
+                                    </tr>";
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                                    ?>
+
+                        </tbody>
+                    </table>
+                    <h3 style="margin-top: 20px;">Address</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Street Name</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>ZipCode</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php
+                                    if (mysqli_num_rows($execShowAllEmpAddress) > 0) {
+                                    while ($row = mysqli_fetch_assoc($execShowAllEmpAddress)) {
+                                    echo "<tr>
+                                    <td>" . $row["StreetAddress"]. "</td>
+                                    <td>" . $row["City"]. " </td>
+                                    <td>" . $row["State"]  . "</td>
+                                    <td>" . $row["ZipCode"]. "</td>
+                                    
+
+                                    </tr>";
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                                    ?>
+                        </tbody>
+                    </table>
+                    <!-- UserLogin -->
+                    <h3 style="margin-top: 20px;">User Login Information</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Last Login</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php
+                                    if (mysqli_num_rows($execShowAllEmpLogin) > 0) {
+                                    while ($row = mysqli_fetch_assoc($execShowAllEmpLogin)) {
+                                        $FormatTimeTo12 = date('Y-m-d h:i:s A', strtotime($row["LastLogin"]));
+                                    echo "<tr>
+                                    <td>" . $row["UserName"]. "</td>
+                                    <td>" . $row["Password"]. " </td>
+                                    <td>" . $FormatTimeTo12  . "</td>
+
+                                    </tr>";
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                                    ?>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin-top: 20px;">Job Description</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Department Name</th>
+                                <th>Position</th>
+                                <th>Hourly Rate</th>
+                                <th>Hire Date</th>
+                                <th>Role</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php
+                                    if (mysqli_num_rows($execShowAllEmpJob) > 0) {
+                                    while ($row = mysqli_fetch_assoc($execShowAllEmpJob)) {
+                                        $title = "";
+                                        if ($row["Role"] == 0) {
+                                            $title = "Admin";
+                                        } else {
+                                            $title = "Client";
+                                        }
+                                    echo "<tr>
+                                    <td>" . $row["DepartmentName"]. "</td>
+                                    <td>" . $row["PositionTitle"]. " </td>
+                                    <td>" . $row["HourlyRate"]. "</td>
+                                    <td>" . $row["HireDate"]. " </td>
+                                    <td>" . $title. "</td>
+
+                                    </tr>";
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                                    ?>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin-top: 20px;">Employee's Benefits</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Benefit Name</th>
+                                <th>Benefit Description</th>
+
+
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php
+                                    if (mysqli_num_rows($execShowAllEmpBenefit) > 0) {
+                                    while ($row = mysqli_fetch_assoc($execShowAllEmpBenefit)) {
+                                        
+                                    echo "<tr>
+                                    <td>" . $row["BenefitName"]. "</td>
+                                    <td>" . $row["BenefitDesciption"]. " </td>
+                                    
+                                    </tr>";
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                                    ?>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin-top: 20px;">Employee's Deduction</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Deduction Name</th>
+                                <th>Deduction Amount</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php
+                                    if (mysqli_num_rows($execShowAllEmpDeduction) > 0) {
+                                    while ($row = mysqli_fetch_assoc($execShowAllEmpDeduction)) {
+                                        
+                                    echo "<tr>
+                                    <td>" . $row["DeductionName"]. "</td>
+                                    <td>" . $row["Amount"]. " </td>
+                            
+                                    </tr>";
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                                    ?>
+                        </tbody>
+                    </table>
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary" name="updateEmpRecord">Save changes</button>
+
+                    <button type="button" class="btn btn-secondary btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -204,27 +454,100 @@
         ?>
     </div>
 
-    <div id="employeeForm" class="signin-container">
-        <h2>Add New Employee</h2>
-        <form action="employee.php" method="POST">
-            <label for="FirstName">First Name:</label>
-            <input type="text" name="FirstName" required>
+    <!-- Form To Delete Employee -->
+    <div class="modal fade" id="deleteEmpIDForm" tabindex="-1" aria-labelledby="deleteEmpIDFormLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteEmpIDFormLabel">Delete Employee</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="employee.php" method="POST">
+                        <label for="DeleteEmpID">Employee ID to Delete:</label>
+                        <input type="number" name="DeleteEmpID" required>
 
-            <label for="LastName">Last Name:</label>
-            <input type="text" name="LastName" required>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" name="deleteEmpBtnID">Save
+                                changes</button>
+                            <button type="button" class="btn btn-secondary btn-danger"
+                                data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <label for="PositionID">PositionID:</label>
-            <input type="number" name="PositionID" required>
 
-            <label for="DepartmentID">DepartmentID:</label>
-            <input type="number" name="DepartmentID" required>
 
-            <label for="Role">Role:</label>
-            <input type="number" name="Role" min="0" max="1" required>
+    <!-- Form To add New Employee -->
+    <div class="modal fade" id="addnewEmployee" tabindex="-1" aria-labelledby="addNewEmpLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addNewEmpLabel">Add New Employee</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="employee.php" method="POST">
+                        <label for="FirstName">First Name:</label>
+                        <input type="text" name="FirstName" required placeholder="John">
 
-            <button class="btn-sign btn btn-primary" type="submit" name="reg_user">Add</button>
-            <button class="btn-sign btn btn-danger" type="reset">Cancel</button>
-        </form>
+                        <label for="LastName">Last Name:</label>
+                        <input type="text" name="LastName" required placeholder="Doe">
+
+
+
+
+
+                        <label for="departmentChosen">Choose a Department:</label>
+                        <select name="departmentaddemp" id="departmentChosen">
+                            <?php
+                            if (mysqli_num_rows($result_dept) > 0) {
+                                while ($row = mysqli_fetch_assoc($result_dept)) {
+                                    echo "<option value='" . $row["DepartmentID"] . "'>" . $row["DepartmentName"] . "</option>";
+                                }
+                            } else {
+                                echo "<option value=''>No departments available</option>";
+                            }
+                            ?>
+                        </select>
+
+                        <label for="positionChosen">Choose a Position:</label>
+                        <select name="positionaddpos" id="positionChosen" required>
+                            <?php
+                            if (mysqli_num_rows($result_pos) > 0) {
+                                while ($row = mysqli_fetch_assoc($result_pos)) {
+                                    echo "<option value='" . $row["PositionID"] . "'>" . $row["PositionTitle"] . "</option>";
+                                }
+                            } else {
+                                echo "<option value=''>No Position available</option>";
+                            }
+                            ?>
+                        </select>
+
+                        <!-- <label for="Role">Role:</label>
+                        <input type="number" name="Role" min="0" max="1" required> -->
+
+                        <label for="choseRoleNewEmp">Choose a Role:</label>
+                        <select name="roleChosen" id="choseRoleNewEmp" required>
+                            <option value="0">Admin</option>
+                            <option value="1">Client</option>
+
+                        </select>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" name="newEmpAddSys">Save changes</button>
+
+                            <button type="button" class="btn btn-secondary btn-danger"
+                                data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 
