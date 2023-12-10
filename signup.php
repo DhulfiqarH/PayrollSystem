@@ -48,13 +48,25 @@
 
             if ($user_name_query_result && mysqli_num_rows($user_name_query_result) > 0) {
 
-                echo "<div class='center'><h2>UserName already exist, please login or use different username</h2></div>";
+                echo "<div class='center'>
+                <h2>UserName already exist, please login or use different username</h2>
+                <h2>You can log in, by clicking here <a href='signin.php'> Sign In </a></h2>
+                </div>";
+                
 
             } elseif ($user_email_query_result && mysqli_num_rows($user_email_query_result) > 0) {
-                echo "<div class='center'><h2>Email already exist, please use different email or login</h2></div>";
+                echo "<div class='center'>
+                <h2>Email already exist, please use different email or login</h2>
+                <h2>You can log in, by clicking here <a href='signin.php'> Sign In </a></h2>
+                </div>";
+               
 
             } elseif ($user_phone_query_result && mysqli_num_rows($user_phone_query_result) > 0) {
-               echo "<div class='center'><h2>Phone already exist, please use different number or login</h2></div>";
+               echo "<div class='center'>
+               <h2>Phone already exist, please use different number or login</h2>
+               <h2>You can log in, by clicking here <a href='signin.php'> Sign In </a></h2>
+               </div>";
+               
 
             } else {
                 $insert_query = "INSERT INTO UserLogin (EmployeeID, Email, Phone, UserName, Password, LastLogin)
@@ -67,7 +79,12 @@
                     ($employeeid, '$Address', '$City','$State','$ZipCode')";
                 $insert_address = mysqli_query($con, $insert_address_query);
                 if ($insert_result && $insert_address) {
-                    echo "<div class='center'><h2>Employee successfully Registered</h2></div>";
+                    echo "<div class='center'>
+                        <h2>Employee successfully Registered</h2>
+                        <h2>You can now log in, by clicking here <a href='signin.php'> Sign In </a></h2>
+                        </div>";
+                    
+                    
                 } else {
                     echo "<div class='center'><h2>Employee ID does not exist, please contact your HR</h2><br>Error: " . mysqli_error($con) . "</div>";
                 }
@@ -183,8 +200,8 @@
             <button type="submit" class="cool-button animated-button" name="signupbtn">Sign Up</button>
         </form>
         <div>
-        <p>Already have an account? <a href="signin.php"> Sign In </a>
-      </div>
+            <p>Already have an account? <a href="signin.php"> Sign In </a>
+        </div>
     </div>
 </body>
 
