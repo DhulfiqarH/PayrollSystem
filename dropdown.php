@@ -96,13 +96,13 @@
             <div class="small-section">
                 <h4>Workflows and Approvals</h4>
                 <p>Bottlenecks and slow approval processes prevent you from making important decisions promptly.
-                    BambooHR comes
+                    Avalanche Innovations comes
                     with pre-built workflows so you can smooth out operations and keep work on track.</p>
             </div>
 
             <div class="small-section">
                 <h4>Reporting and Analytics</h4>
-                <p>BambooHR reporting and analytics makes reporting effortless, so you can create and share reports
+                <p>Avalanche Innovations reporting and analytics makes reporting effortless, so you can create and share reports
                     quickly. And with the
                     information your reports provide, you can make strategic decisions with confidence.</p>
             </div>

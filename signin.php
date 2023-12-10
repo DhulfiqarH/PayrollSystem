@@ -10,6 +10,9 @@
 </head>
 
 <body>
+  <video id="video-background" autoplay muted loop>
+      <source src="images/page.MP4" type="video/mp4">
+  </video>
     <?php
   session_start();
   	include("sqlconnection.php");
@@ -64,13 +67,10 @@
 
   			} else {
                 echo "<div class='center'><h2>Invalid Username or Password, try again</h2></div>";
-
             }
-
   		}else
   		{
             echo "<div class='center'><h2>Please enter all data</h2></div>";
-
   		}
   	}
   ?>
@@ -89,16 +89,7 @@ if ($login_success) {
     </script>";
 }
 ?>
-    <!-- <div class="dropdown">
-        <span class="cool-button animated-button">Option</span>
-        <div class="dropdown-content">
-            <a href="signup.php" class="cool-button animated-button">Signup</a>
-            <a href="signin.php" class="cool-button animated-button">Signin</a>
-        </div>
-    </div> -->
-    <video id="video-background" autoplay muted loop>
-        <source src="images/page.mp4" type="video/mp4">
-    </video>
+
     <div class="signin-container">
         <h2>Sign In</h2>
         <form action="signin.php" method="post">
@@ -117,5 +108,5 @@ if ($login_success) {
     </div>
     <script src="scripts.js"></script>
 </body>
-
 </html>
+

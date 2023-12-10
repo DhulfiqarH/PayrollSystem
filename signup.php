@@ -12,6 +12,12 @@
 </head>
 
 <body>
+  <video id="video-background" autoplay muted loop>
+      <source src="images/page.MP4" type="video/mp4">
+  </video>
+  <video id="video-background2" autoplay muted loop>
+      <source src="images/page.MP4" type="video/mp4">
+  </video>
     <?php
     session_start();
     include 'sqlconnection.php';
@@ -94,9 +100,6 @@
     }
     }
     ?>
-    <video id="video-background" autoplay muted loop>
-        <source src="images/page.mp4" type="video/mp4">
-    </video>
 
     <!-- <div class="dropdown">
         <span class="cool-button animated-button">Option</span>
