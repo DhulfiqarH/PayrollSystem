@@ -10,9 +10,7 @@
 </head>
 
 <body>
-    <video id="video-background" autoplay muted loop>
-        <source src="images/page.MP4" type="video/mp4">
-    </video>
+
     <?php
   session_start();
   	include("sqlconnection.php");
@@ -89,6 +87,9 @@ if ($login_success) {
     </script>";
 }
 ?>
+    <video id="video-background" autoplay muted loop>
+        <source src="https://swe.umbc.edu/~nsubba1/prototypev7/PayrollSystem/images/page.MP4" type="video/mp4">
+    </video>
 
     <div class="signin-container">
         <h2>Sign In</h2>

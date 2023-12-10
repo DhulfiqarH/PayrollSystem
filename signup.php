@@ -12,12 +12,7 @@
 </head>
 
 <body>
-  <video id="video-background" autoplay muted loop>
-      <source src="images/page.MP4" type="video/mp4">
-  </video>
-  <video id="video-background2" autoplay muted loop>
-      <source src="images/page.MP4" type="video/mp4">
-  </video>
+
     <?php
     session_start();
     include 'sqlconnection.php';
@@ -110,7 +105,9 @@
     </div> -->
 
 
-
+    <video id="video-background" autoplay muted loop>
+        <source src="https://swe.umbc.edu/~nsubba1/prototypev7/PayrollSystem/images/page.MP4" type="video/mp4">
+    </video>
     <div class="signup-container">
         <h2>Sign Up</h2>
         <form action="signup.php" method="post">
@@ -208,4 +205,5 @@
     </div>
     <script src="scripts.js"></script>
 </body>
+
 </html>

@@ -19,8 +19,11 @@
     <div>
         <img id="logo" src="images/black_logo.png" alt="Your Logo">
     </div>
-    <video id="video-background" autoplay muted loop>
+    <!-- <video id="video-background" autoplay muted loop>
         <source src="images/page.MP4" type="video/mp4">
+    </video> -->
+    <video id="video-background" autoplay muted loop>
+        <source src="https://swe.umbc.edu/~nsubba1/prototypev7/PayrollSystem/images/page.MP4" type="video/mp4">
     </video>
     <div class="company-info">
         <!-- <h3>Avalanche Innovations</h3>
@@ -102,7 +105,8 @@
 
             <div class="small-section">
                 <h4>Reporting and Analytics</h4>
-                <p>Avalanche Innovations reporting and analytics makes reporting effortless, so you can create and share reports
+                <p>Avalanche Innovations reporting and analytics makes reporting effortless, so you can create and share
+                    reports
                     quickly. And with the
                     information your reports provide, you can make strategic decisions with confidence.</p>
             </div>
