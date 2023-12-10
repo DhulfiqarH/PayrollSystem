@@ -80,7 +80,7 @@ if ($login_success) {
 
     $redirectUrl = 'clienthome.php';
     if ($check_access === 0) {
-        $redirectUrl = 'admindash.php';
+        $redirectUrl = 'employee.php';
     }
     echo "<script>
       setTimeout(function() {
