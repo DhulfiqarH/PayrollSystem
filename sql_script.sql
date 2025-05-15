@@ -1,5 +1,5 @@
 -- MYSQL Database for Online Payroll System
--- IS436 Project Group 7 - Nishan Subba
+-- IS436 Project - Dhulfiqar
 
 -- Drop Database if already created
 DROP DATABASE IF EXISTS PayrollSystem;
